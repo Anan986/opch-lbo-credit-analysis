@@ -19,8 +19,8 @@ Do not commit at launch terms. Re-engage if term debt comes down to about $2.9bn
 
 ## What's inside
 - `index.html`: investment committee memo (live link above)
+- `OPCH_LBO_Credit_Memo.pdf`: printable version
 - `OPCH_LBO_Credit_Model.xlsx`: 7-year credit model: EBITDA bridge, capital structure, projections, credit stats, recovery
-- R analysis (Monte Carlo, LGD, loss distribution, debt sizing, reverse stress): available on request
 
 ## Tools
-Excel · R · Python (independent model rebuild, 0 differences across ~1,900 outputs)
+Excel · R (Monte Carlo, LGD, loss distribution, debt sizing, reverse stress; validated against the Excel model before every run)
