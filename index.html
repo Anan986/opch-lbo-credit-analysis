@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option Care Health LBO Term Loan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+/* Layout: one editorial column of memo prose (≈68ch) with wider figure and table bands; navy-and-gold identity, ivory paper in light/print. */
+:root {
+  --bg: #0C121D;          /* page: deep navy */
+  --surface: #141B29;     /* cards, figures */
+  --surface-2: #1A2333;   /* table stripes */
+  --line: #20293C;        /* borders, grid */
+  --ink: #E0DBD1;         /* body text: warm ivory */
+  --ink-soft: #C5C1B9;
+  --muted: #7B879D;       /* captions */
+  --gold: #C09A59;        /* accent */
+  --gold-ink: #C09A59;
+  --on-gold: #0C121D;
+  --s1: #B88732; --s2: #5A8BD6; --s3: #D26A55;   /* chart series (validated, dark) */
+  --good: #5FA77A; --bad: #D26A55;
+  --f-display: "Playfair Display", "Times New Roman", Georgia, serif;
+  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 4px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #F7F4EE; --surface: #FFFFFF; --surface-2: #F2EEE6; --line: #DCD5C8;
+    --ink: #1A2230; --ink-soft: #3A4352; --muted: #6A7384; --gold: #A27A3A; --gold-ink: #7E5C22; --on-gold: #FFFFFF;
+    --s1: #A26F1C; --s2: #2F5891; --s3: #B04A3C; --good: #2E7D4F; --bad: #B04A3C;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #F7F4EE; --surface: #FFFFFF; --surface-2: #F2EEE6; --line: #DCD5C8;
+  --ink: #1A2230; --ink-soft: #3A4352; --muted: #6A7384; --gold: #A27A3A; --gold-ink: #7E5C22; --on-gold: #FFFFFF;
+  --s1: #A26F1C; --s2: #2F5891; --s3: #B04A3C; --good: #2E7D4F; --bad: #B04A3C;
+  color-scheme: light;
+}
+@media print {
+  :root, :root[data-theme="dark"] {
+    --bg: #FFFFFF; --surface: #FFFFFF; --surface-2: #F4F1EA; --line: #D8D1C3;
+    --ink: #151C28; --ink-soft: #333B48; --muted: #5E6676; --gold: #9A7334; --gold-ink: #7A5A20; --on-gold: #FFFFFF;
+    --s1: #A26F1C; --s2: #2F5891; --s3: #B04A3C; --good: #2E7D4F; --bad: #B04A3C; color-scheme: light;
+  }
+  .no-print { display: none !important; }
+  section, figure, table { break-inside: avoid; }
+  .cover { break-after: page; }
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15.5px; line-height: 1.65; margin: 0;
+  -webkit-font-smoothing: antialiased; }
+.page { max-width: 1000px; margin: 0 auto; padding-block: 40px 96px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.col { max-width: 720px; }
+.eyebrow { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-ink); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; color: var(--ink); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; letter-spacing: -0.025em; }
+h2 { font-size: clamp(24px, 3.2vw, 30px); line-height: 1.2; letter-spacing: -0.01em; }
+h3 { font-family: var(--f-body); font-size: 15px; font-weight: 600; letter-spacing: 0; }
+p { margin: 0; max-width: 68ch; }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.stack-lg { display: flex; flex-direction: column; gap: 28px; }
+strong { font-weight: 600; color: var(--ink); }
+a { color: var(--gold-ink); text-underline-offset: 3px; }
+.num, td, th, .tab { font-variant-numeric: tabular-nums; }
+hr.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+
+/* cover */
+.cover { display: flex; flex-direction: column; gap: 28px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+.mast { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.mast .mark { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink); }
+.mast .conf { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 17px; color: var(--ink-soft); max-width: 64ch; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.facts div { padding: 14px 16px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.facts dt { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; font-size: 14px; color: var(--ink); }
+
+/* recommendation */
+.verdict { border: 1px solid var(--gold); border-radius: var(--radius); background: var(--surface); padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+.verdict .tag { align-self: flex-start; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; background: var(--gold); color: var(--on-gold); padding: 4px 10px; border-radius: 2px; }
+.verdict h2 { font-size: clamp(22px, 3vw, 27px); }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.kpi { background: var(--surface); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.kpi .v { font-family: var(--f-display); font-size: 30px; line-height: 1; color: var(--ink); }
+.kpi .l { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+.kpi .v.warn { color: var(--bad); }
+
+/* sections */
+section.memo { display: flex; flex-direction: column; gap: 18px; padding-top: 56px; }
+.sec-head { display: flex; gap: 16px; align-items: baseline; }
+.sec-no { font-family: var(--f-mono); font-size: 12px; color: var(--gold-ink); letter-spacing: 0.08em; min-width: 26px; }
+.takeaway { border-left: 2px solid var(--gold); padding: 2px 0 2px 16px; color: var(--ink); font-size: 16px; max-width: 68ch; }
+ul.clean { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; max-width: 68ch; }
+ul.clean li::marker { color: var(--gold); }
+
+/* tables */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 190px; }
+thead th { font-family: var(--f-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); background: var(--surface-2); }
+tbody tr:last-child td { border-bottom: 0; }
+tr.total td { font-weight: 600; color: var(--ink); border-top: 1px solid var(--gold); }
+tr.sub td { color: var(--muted); }
+td.neg { color: var(--bad); }
+td.pos { color: var(--good); }
+td.hl, th.hl { background: color-mix(in srgb, var(--gold) 12%, transparent); }
+.pill { display: inline-block; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.08em; padding: 2px 7px; border-radius: 2px; border: 1px solid currentColor; }
+.pill.ok { color: var(--good); } .pill.no { color: var(--bad); } .pill.mid { color: var(--gold-ink); }
+.note { font-size: 12.5px; color: var(--muted); max-width: 80ch; }
+table.wrap td { white-space: normal; text-align: left; }
+table.wrap td.r { text-align: right; white-space: nowrap; }
+
+/* figures */
+figure { margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 18px 18px 12px; display: flex; flex-direction: column; gap: 10px; }
+figcaption .ft { font-family: var(--f-display); font-size: 19px; color: var(--ink); line-height: 1.3; display: block; }
+figcaption .fs { font-size: 13px; color: var(--muted); display: block; margin-top: 2px; }
+.chart { position: relative; width: 100%; min-height: 280px; }
+.chart svg { display: block; overflow: visible; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; color: var(--ink-soft); }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.legend i { width: 16px; height: 3px; border-radius: 2px; display: inline-block; }
+.legend i.dash { background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px) !important; height: 2px; }
+.src { font-size: 11.5px; color: var(--muted); }
+.tip { position: absolute; pointer-events: none; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 10px; font-size: 12px; color: var(--ink); line-height: 1.5; box-shadow: 0 4px 14px rgba(0,0,0,.25); white-space: nowrap; z-index: 2; }
+.tip b { font-weight: 600; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.grid2 > * { min-width: 0; }
+.callout { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+.callout .eyebrow { font-size: 10.5px; }
+.toc { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4px 24px; font-size: 13.5px; }
+.toc a { color: var(--ink-soft); text-decoration: none; display: flex; gap: 10px; padding: 3px 0; border-bottom: 1px dotted var(--line); }
+.toc a span { font-family: var(--f-mono); color: var(--gold-ink); font-size: 11.5px; min-width: 22px; }
+.toc a:hover, .toc a:focus-visible { color: var(--ink); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.foot { margin-top: 64px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+@media (max-width: 560px) { body { font-size: 15px; } .kpi .v { font-size: 26px; } th:first-child, td:first-child { min-width: 150px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ============================ COVER ============================ -->
+<header class="cover">
+  <div class="mast">
+    <span class="mark">Investment Committee Memorandum</span>
+    <span class="conf">Confidential · For Committee Use Only</span>
+  </div>
+  <div class="stack">
+    <span class="eyebrow">Leveraged Finance · First-Lien Term Loan B · Take-Private Financing</span>
+    <h1>Option Care Health, Inc.<br>(NASDAQ: OPCH)</h1>
+    <p class="lede">Proposed participation in the first-lien term loan funding the $32.05-per-share take-private of the largest independent U.S. home and alternate-site infusion provider, by a financial sponsor (~51%) and a strategic healthcare investor (~49%).</p>
+  </div>
+  <dl class="facts" style="margin:0">
+    <div><dt>Borrower</dt><dd>Option Care Health, Inc. (post-merger)</dd></div>
+    <div><dt>Instrument</dt><dd>Senior secured first-lien Term Loan B</dd></div>
+    <div><dt>Facility size (modelled)</dt><dd>$2,400mm 1L TLB within $3,150mm term debt</dd></div>
+    <div><dt>Proposed hold</dt><dd>$50mm (illustrative)</dd></div>
+    <div><dt>Pricing (modelled)</dt><dd>SOFR + 325 bps · 0.50% floor · OID 99.0</dd></div>
+    <div><dt>Tenor / amortisation</dt><dd>7 years (2033) · 1% p.a.</dd></div>
+    <div><dt>Enterprise value</dt><dd>$5.80bn · ~37% premium</dd></div>
+    <div><dt>Equity cheque</dt><dd>$2,873mm (47.7% of capitalisation)</dd></div>
+    <div><dt>Issuer rating</dt><dd>BB-, CreditWatch Negative (Oct 8, 2026)</dd></div>
+    <div><dt>Expected close</dt><dd>First half of 2027</dd></div>
+    <div><dt>Financial data as of</dt><dd>LTM June 30, 2026 · SOFR as of Oct 22, 2026</dd></div>
+    <div><dt>Prepared by</dt><dd>Mohammad Anan, Credit Analyst</dd></div>
+  </dl>
+
+  <div class="verdict">
+    <span class="tag">Recommendation</span>
+    <h2>Do not commit at launch terms. Re-engage if term debt comes down to about $2.9bn (≤ 7.0x net Underwriting EBITDA), most likely through flex if order books are thin.</h2>
+    <p>The franchise is strong and the price is fair, but $3.15bn of term debt is 7.8x our Underwriting EBITDA of $404mm, 2–3 turns above recent LBOs. The credit depends on one variable, gross margin, and the evidence on it is mixed. We weighted four margin outlooks, from "margins hold" to "core erosion continues", with weights fixed before running the model. The probability-weighted seven-year PD is <strong>41%</strong> against a 25% limit, about the historical default rate of a B-rated issuer. Even the most optimistic weighting gives 30%. The spread more than covers expected loss, so the loan fails on default risk, which wider pricing cannot fix. At $2.9bn the weighted PD falls to <strong>23%</strong>. Almost every simulated default is a failure to refinance at the 2033 maturity, not a missed payment.</p>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><span class="v">$404mm</span><span class="l">Underwriting EBITDA, LTM Jun-26 (management: $468mm)</span></div>
+    <div class="kpi"><span class="v warn">7.8x</span><span class="l">Total debt / Underwriting EBITDA at close (6.7x on management's number)</span></div>
+    <div class="kpi"><span class="v warn">41%</span><span class="l">Probability-weighted 7-year PD (11% if margins hold; limit 25%)</span></div>
+    <div class="kpi"><span class="v">53%</span><span class="l">First-lien recovery in a downside default (67% on average across simulated defaults)</span></div>
+    <div class="kpi"><span class="v">$2.9bn</span><span class="l">Maximum term debt that keeps weighted PD within the limit</span></div>
+  </div>
+
+  <nav class="toc no-print" aria-label="Contents">
+    <a href="#s1"><span>1</span>The transaction</a>
+    <a href="#s2"><span>2</span>The business and credit merits</a>
+    <a href="#s3"><span>3</span>Underwriting EBITDA</a>
+    <a href="#s4"><span>4</span>Leverage against the market</a>
+    <a href="#s5"><span>5</span>Why margins are falling</a>
+    <a href="#s6"><span>6</span>Cash flow and stress tests</a>
+    <a href="#s7"><span>7</span>Monte Carlo: probability of default</a>
+    <a href="#s8"><span>8</span>Loss given default and recovery</a>
+    <a href="#s9"><span>9</span>Expected and unexpected loss</a>
+    <a href="#s10"><span>10</span>Debt sizing</a>
+    <a href="#s11"><span>11</span>Strategic takeout option</a>
+    <a href="#s12"><span>12</span>Benchmarks</a>
+    <a href="#s13"><span>13</span>Risks and mitigants</a>
+    <a href="#s14"><span>14</span>Our options and next steps</a>
+    <a href="#appA"><span>A</span>Assumptions register</a>
+    <a href="#appB"><span>B</span>Methodology and validation</a>
+    <a href="#appC"><span>C</span>Sources</a>
+  </nav>
+</header>
+
+<!-- ============================ 1. TRANSACTION ============================ -->
+<section class="memo" id="s1">
+  <div class="sec-head"><span class="sec-no">01</span><h2>The transaction</h2></div>
+  <div class="col stack">
+    <p>On October 5, 2026, OPCH agreed to be acquired at $32.05 per share in cash by a consortium of a financial sponsor (~51%) and a strategic healthcare investor (~49%, about $1.4bn). Closing is expected in the first half of 2027, subject to shareholder and regulatory approval. Financing is not a closing condition. The consortium has committed $2.87bn of equity and up to $3.15bn of term debt plus a $500mm revolver, and all existing OPCH debt is repaid at close.</p>
+    <p>The split of the $3.15bn across tranches has not been disclosed. We model the most common sponsor structure, a $2.4bn first-lien term loan and $750mm of senior unsecured notes (Structure B), and test the alternatives in Section 8.</p>
+  </div>
+  <div class="grid2">
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Sources</th><th>$mm</th><th>%</th></tr></thead>
+      <tbody>
+        <tr><td>First-lien term loan B</td><td>2,400.0</td><td>38.6%</td></tr>
+        <tr><td>Senior unsecured notes</td><td>750.0</td><td>12.1%</td></tr>
+        <tr><td>Revolver drawn at close ($500mm commitment)</td><td>–</td><td>–</td></tr>
+        <tr><td>Sponsor and strategic equity</td><td>2,873.3</td><td>46.2%</td></tr>
+        <tr><td>Existing balance sheet cash</td><td>193.8</td><td>3.1%</td></tr>
+        <tr class="total"><td>Total sources</td><td>6,217.1</td><td>100%</td></tr>
+      </tbody></table></div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Uses</th><th>$mm</th><th>%</th></tr></thead>
+      <tbody>
+        <tr><td>Equity purchase ($32.05 × 150.4mm shares)</td><td>4,820.3</td><td>77.5%</td></tr>
+        <tr><td>Refinance existing TLB and 4.375% notes at par</td><td>1,172.9</td><td>18.9%</td></tr>
+        <tr><td>Financing fees (2.25%)</td><td>70.9</td><td>1.1%</td></tr>
+        <tr><td>OID on first-lien TLB (1.0%)</td><td>24.0</td><td>0.4%</td></tr>
+        <tr><td>Advisory, legal and other</td><td>75.0</td><td>1.2%</td></tr>
+        <tr><td>Cash to balance sheet</td><td>54.0</td><td>0.9%</td></tr>
+        <tr class="total"><td>Total uses</td><td>6,217.1</td><td>100%</td></tr>
+      </tbody></table></div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Pro forma capital structure</th><th>$mm</th><th>Year-1 rate</th><th>Maturity</th><th>Cumulative × UW EBITDA</th><th>× Mgmt EBITDA</th></tr></thead>
+    <tbody>
+      <tr><td>Revolver ($500mm, undrawn)</td><td>–</td><td>S + 300</td><td>~2031</td><td>–</td><td>–</td></tr>
+      <tr class="hl"><td><strong>First-lien term loan B (our loan)</strong></td><td>2,400</td><td>7.15%</td><td>2033</td><td>5.94x</td><td>5.13x</td></tr>
+      <tr><td>Senior unsecured notes</td><td>750</td><td>7.50%</td><td>2034</td><td>7.80x</td><td>6.73x</td></tr>
+      <tr class="total"><td>Total debt</td><td>3,150</td><td>7.2% avg</td><td></td><td>7.80x</td><td>6.73x</td></tr>
+      <tr class="sub"><td>Net debt (after $54mm cash)</td><td>3,096</td><td></td><td></td><td>7.67x</td><td>6.62x</td></tr>
+      <tr class="sub"><td>Equity beneath all debt</td><td>2,873</td><td></td><td></td><td colspan="2">47.7% of capitalisation</td></tr>
+    </tbody></table></div>
+  <p class="note">The purchase price is 14.4x Underwriting EBITDA (12.4x management Adjusted EBITDA). Year-1 cash interest is $230mm at today's 3.90% SOFR, against $404mm of Underwriting EBITDA: 1.8x coverage, versus 7.5x before the deal. Our 150.4mm share count reproduces the announced ~$5.8bn EV. A fully diluted count of 152–153mm would add $60–80mm to the equity purchase, funded with equity, since the debt commitment is fixed.</p>
+</section>
+
+<!-- ============================ 2. BUSINESS ============================ -->
+<section class="memo" id="s2">
+  <div class="sec-head"><span class="sec-no">02</span><h2>The business and its credit merits</h2></div>
+  <div class="col stack">
+    <p><strong>What it does.</strong> OPCH dispenses and administers infusion therapies in patients' homes and in its own ambulatory infusion suites, as a lower-cost alternative to a hospital stay. Its therapies include anti-infectives, nutrition support, immunoglobulin, and specialty and rare-disease drugs. FY2025 revenue was $5.65bn, up 13%. Most of it is the drug itself, passed through at cost plus a margin, so gross margin is thin (19.3%) and sensitive to therapy mix.</p>
+    <p><strong>Scale and footprint.</strong> OPCH operates 196 locations in 43 states: 87 full-service compounding pharmacies (73 with infusion suites) and 109 stand-alone ambulatory infusion suites, staffed by more than 5,000 clinicians.</p>
+  </div>
+  <div class="grid2">
+    <div class="callout"><span class="eyebrow">Credit merits: why a lender would want this loan</span>
+      <ul class="clean">
+        <li><strong>Market leader with a moat.</strong> It has the largest independent national network of sterile compounding pharmacies and suites. That network is slow and costly to replicate, and the rest of the market is fragmented.</li>
+        <li><strong>Non-cyclical demand.</strong> Chronic and acute infusion therapy cannot be deferred in a recession, and revenue grew in every period we reviewed.</li>
+        <li><strong>Payers want it.</strong> Home infusion saves payers money against inpatient care, and OPCH has contracts across managed care, Medicare and Medicaid.</li>
+        <li><strong>Real equity beneath us.</strong> $2.87bn (48%) of cash equity ranks behind all debt.</li>
+        <li><strong>A strategic owner.</strong> The ~49% co-investor is a large healthcare company whose drug purchasing scale could ease the gross-margin pressure that drives our risk case. It has also set out a framework to buy the sponsor's stake (Section 11). None of this is in our EBITDA, because it is not yet earned.</li>
+        <li><strong>Strong cash conversion today.</strong> Pre-deal interest coverage is 7.5x, and capex is under 1% of revenue.</li>
+      </ul></div>
+    <div class="callout"><span class="eyebrow">What can hurt it</span>
+      <ul class="clean">
+        <li><strong>Mix and drug pricing.</strong> Biosimilar adoption and higher-cost rare-disease drugs compress gross margin (Section 5).</li>
+        <li><strong>Growth has stalled.</strong> Underwriting EBITDA was flat over the last twelve months ($405mm FY25 vs $404mm LTM). 2026 revenue guidance implies only 0.5–2.2% growth.</li>
+        <li><strong>Concentration.</strong> The largest payer is ~14% of revenue, and ~12% is reimbursed directly by government programmes.</li>
+        <li><strong>Competition.</strong> Infusion units owned by large insurers and pharmacy chains compete for the same referrals and payer contracts.</li>
+      </ul></div>
+  </div>
+  <p class="takeaway">This franchise can support a leveraged loan. The question is how much debt, given margins that have fallen for two years and growth that has slowed.</p>
+</section>
+
+<!-- ============================ 3. UNDERWRITING EBITDA ============================ -->
+<section class="memo" id="s3">
+  <div class="sec-head"><span class="sec-no">03</span><h2>Underwriting EBITDA: $404mm, 14% below management</h2></div>
+  <div class="col stack">
+    <p>We rebuilt EBITDA from audited and reviewed statements. It ties to the company's reported EBITDA and Adjusted EBITDA to the dollar in every period. We then tested every management add-back against five criteria (CARVE): did it hit <strong>c</strong>ash, is it <strong>a</strong>uditable, is it non-<strong>r</strong>ecurring, is it <strong>v</strong>erifiable, and is it <strong>e</strong>xcluded from running the business? An add-back that fails any test is rejected. Irregular gains are stripped out as strictly as losses would be added back.</p>
+  </div>
+  <div class="tbl-wrap"><table class="wrap">
+    <thead><tr><th>LTM June 2026, $mm</th><th>Amount</th><th>Management</th><th>Underwriting</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Net income + interest + taxes + D&amp;A (EBITDA)</td><td class="r">411.1</td><td class="r">411.1</td><td class="r">411.1</td><td>Ties to company-reported EBITDA.</td></tr>
+      <tr><td>Stock-based compensation</td><td class="r">39.0</td><td class="r">+39.0</td><td class="r">0</td><td>Non-cash, but it recurs every year, and staff must still be paid market compensation after the buyout.</td></tr>
+      <tr><td>Restructuring, acquisition and integration</td><td class="r">12.9</td><td class="r">+12.9</td><td class="r">0</td><td>Cash in every period ($11mm FY24, $18mm FY25, $7mm H1-26): a normal cost for an acquisitive company.</td></tr>
+      <tr><td>Loss on debt extinguishment</td><td class="r">4.7</td><td class="r">+4.7</td><td class="r">0</td><td>Non-cash, but it appeared in both FY24 and FY25. Rejected; accepting it would move leverage by less than 0.1x.</td></tr>
+      <tr><td>Non-operating gains in "Other, net"</td><td class="r">3.1</td><td class="r">–</td><td class="r neg">−3.1</td><td>Reversals of legacy unclaimed-property accruals; irregular gains are stripped out.</td></tr>
+      <tr><td>Joint-venture income above cash received</td><td class="r">4.2</td><td class="r">–</td><td class="r neg">−4.2</td><td>$7.7mm booked but only $3.5mm received in cash. Lenders are repaid from cash.</td></tr>
+      <tr><td>Run-rate synergies</td><td class="r">–</td><td class="r">–</td><td class="r">0</td><td>Projected, not earned.</td></tr>
+      <tr class="total"><td>EBITDA</td><td class="r"></td><td class="r">467.8</td><td class="r">403.9</td><td>Underwriting EBITDA is 13.7% below management's figure.</td></tr>
+    </tbody></table></div>
+  <p class="note">The loan documents will define EBITDA more generously. The current credit agreement's definition, including a 35% cap on run-rate synergies (we assume 10% is claimed), gives $510mm, 26% above our number. Covenants are tested on that figure; every credit judgment in this memo uses $404mm.</p>
+</section>
+
+<!-- ============================ 4. LEVERAGE ============================ -->
+<section class="memo" id="s4">
+  <div class="sec-head"><span class="sec-no">04</span><h2>Leverage against the market</h2></div>
+  <figure>
+    <figcaption><span class="ft">On every definition, the deal is more levered than the 2025 LBO average</span><span class="fs">Total debt / EBITDA at close; OPCH today shown for reference</span></figcaption>
+    <div class="chart" id="c_lev" style="min-height:250px"></div>
+    <div class="src">Sources: OPCH filings; credit model. Market average: broadly syndicated LBO loans, 2025. Regulatory reference: 2013 interagency leveraged-lending guidance (withdrawn by the OCC and FDIC, Dec 5, 2025).</div>
+  </figure>
+  <div class="col stack">
+    <p>Measured the way the market measures it, on management's Adjusted EBITDA, leverage is 6.7x. That compares with a 2025 average of about 5.0x for syndicated LBO loans and 4.8–5.3x for 2025–26 originations. It is also above the 6.0x level that the 2013 interagency leveraged-lending guidance flagged as raising concerns for most industries. The OCC and FDIC withdrew that guidance and its 2014 FAQs on December 5, 2025, so 6.0x is no longer a supervisory line for national banks. We keep it as a market reference point because lenders and rating agencies still anchor to it.</p>
+    <p><strong>A rating agency sees the same problem.</strong> On October 8, 2026 it placed OPCH's 'BB-' issuer rating on CreditWatch Negative and signalled a possible downgrade of several notches. It measured pre-deal leverage at 2.6x on its own adjusted basis (we measure 2.9x on Underwriting EBITDA) and expects the new structure to go well past its 4.0x downgrade trigger. A multi-notch move from BB- lands at B or B-, which is why this memo benchmarks default risk and pricing against B-rated credits.</p>
+    <p>On our Underwriting EBITDA, leverage is 7.8x. Launch interest coverage of 1.8x is below the 2.2–2.3x of 2024–26 vintages. The 48% equity cheque is in line with recent deals, not unusually thick.</p>
+  </div>
+</section>
+
+<!-- ============================ 5. MARGINS ============================ -->
+<section class="memo" id="s5">
+  <div class="sec-head"><span class="sec-no">05</span><h2>Why margins are falling</h2></div>
+  <div class="col stack">
+    <p>Underwriting EBITDA margin fell 127 bps from FY2023 to LTM, from 8.36% to 7.09%. It breaks down exactly as follows: gross margin fell 375 bps, SG&amp;A efficiency recovered 211 bps, and other items added 37 bps. Management attributes the gross margin decline to three things:</p>
+    <ul class="clean">
+      <li>therapy mix shifting to higher-cost rare and orphan drugs</li>
+      <li>biosimilar adoption</li>
+      <li>patient attrition in its chronic inflammatory disease (CID) portfolio</li>
+    </ul>
+    <p>In February management guided to a $25–35mm 2026 gross-profit headwind from CID. By the second quarter it had raised that to about $55mm.</p>
+  </div>
+  <div class="grid2">
+    <figure>
+      <figcaption><span class="ft">Gross margin has fallen faster than cost savings could offset</span><span class="fs">% of revenue</span></figcaption>
+      <div class="legend" id="lg_margin"></div>
+      <div class="chart" id="c_margin" style="min-height:290px"></div>
+      <div class="src">Sources: OPCH 10-K FY2023 and FY2025, 10-Q Q2 2026; credit model.</div>
+    </figure>
+    <figure>
+      <figcaption><span class="ft">EBITDA dollars kept growing until the last twelve months</span><span class="fs">Underwriting EBITDA, $mm</span></figcaption>
+      <div class="chart" id="c_ebitda" style="min-height:290px"></div>
+      <div class="src">Sources: OPCH filings; credit model (CARVE basis).</div>
+    </figure>
+  </div>
+  <div class="col stack">
+    <p>The margin percentage overstates the damage. Most revenue is drug passed through at cost, so a shift to expensive therapies dilutes the percentage even when gross profit dollars grow. Underwriting EBITDA rose 12%, from $360mm in FY2023 to $405mm in FY2025, while revenue rose 31%. What is new is that EBITDA dollars stopped growing over the last twelve months: $404mm LTM against $405mm in FY2025. That is why the margin trend matters now.</p>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Change in margin, bps</th><th>Gross margin</th><th>SG&amp;A savings</th><th>Other</th><th>Net</th><th>7-yr PD at this pace</th></tr></thead>
+    <tbody>
+      <tr><td>FY2023 → FY2024</td><td class="neg">−254</td><td class="pos">+151</td><td>+42</td><td class="neg">−61</td><td>&gt; 95%</td></tr>
+      <tr><td>FY2024 → FY2025</td><td class="neg">−101</td><td class="pos">+53</td><td>−11</td><td class="neg">−59</td><td>&gt; 95%</td></tr>
+      <tr><td>Latest year (H1-26 vs H1-25)</td><td class="neg">−41</td><td class="pos">+16</td><td>+17</td><td class="neg">−8</td><td>25%</td></tr>
+      <tr class="hl"><td>Latest year, core operating only (gross margin + SG&amp;A)</td><td class="neg">−41</td><td class="pos">+16</td><td>excl.</td><td class="neg">−25</td><td><strong>74%</strong></td></tr>
+    </tbody></table></div>
+  <p class="takeaway">Erosion slowed sharply in the latest year, but the SG&amp;A cushion is nearly spent (+151 → +53 → +16 bps), and half of the improvement came from volatile non-operating items. On core operations, margin is still falling about 25 bps a year, and management has guided to a larger CID headwind for 2026.</p>
+  <p class="note">"Other" combines D&amp;A included in cost of revenue, joint-venture cash and CARVE-stripped non-operating items. The PD at each pace comes from the Monte Carlo in Section 7, with that pace extended for seven years.</p>
+</section>
+
+<!-- ============================ 6. CASH FLOW ============================ -->
+<section class="memo" id="s6">
+  <div class="sec-head"><span class="sec-no">06</span><h2>Cash flow and stress tests</h2></div>
+  <div class="col stack">
+    <p>We project seven years on Underwriting EBITDA. The model includes:</p>
+    <ul class="clean">
+      <li>floating-rate interest</li>
+      <li>cash taxes with the 30% interest-deduction limit</li>
+      <li>capex at 0.75% of revenue</li>
+      <li>working capital</li>
+      <li>1% annual amortisation</li>
+      <li>a 50% sweep of each year's excess cash flow to the term loan</li>
+    </ul>
+    <p>We run three cases:</p>
+    <ul class="clean">
+      <li><strong>Lender base:</strong> revenue +2% in 2027 and +3% in 2028, then +3.5% a year, anchored to 2026 guidance (+0.5–2.2%) and half the 7% management case. Margin is flat. SOFR is 3.90% today, easing to 3.50%.</li>
+      <li><strong>Downside:</strong> revenue −3% in 2028 (a reimbursement cut and volume loss), with margin 100–250 bps lower.</li>
+      <li><strong>Downside with stressed rates:</strong> the same, with SOFR at 5.5–6.0%.</li>
+    </ul>
+  </div>
+  <figure>
+    <figcaption><span class="ft">The base case deleverages to 4.4x; the downside is still near 10x at maturity</span><span class="fs">Net debt / Underwriting EBITDA by year</span></figcaption>
+    <div class="legend" id="lg_cases"></div>
+    <div class="chart" id="c_cases" style="min-height:300px"></div>
+    <div class="src">Source: credit model projections (Structure B).</div>
+  </figure>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>2027–2033</th><th>Lender base</th><th>Downside</th><th>Downside, stressed rates</th></tr></thead>
+    <tbody>
+      <tr><td>Net leverage: 2027 / peak / 2033</td><td>7.3x / 7.3x / 4.4x</td><td>8.8x / 12.1x / 9.9x</td><td>8.9x / 12.9x / 11.3x</td></tr>
+      <tr><td>Minimum fixed charge coverage (EBITDAR basis)</td><td>1.21x</td><td class="neg">0.80x</td><td class="neg">0.64x</td></tr>
+      <tr><td>Minimum DSCR ((EBITDA − capex) / interest)</td><td>1.60x</td><td class="neg">0.98x</td><td class="neg">0.75x</td></tr>
+      <tr><td>Peak revolver draw (of $500mm)</td><td>$0</td><td>$217mm</td><td class="neg">$500mm, fully drawn</td></tr>
+      <tr><td>Term loan outstanding at 2033 maturity</td><td>$1,867mm</td><td>$2,228mm</td><td>$2,232mm</td></tr>
+      <tr><td>Outcome</td><td><span class="pill ok">Refinanceable</span></td><td><span class="pill mid">Interest paid via revolver; cannot refinance</span></td><td><span class="pill no">Cash runs out: default</span></td></tr>
+    </tbody></table></div>
+
+  <h3 style="margin-top:12px">How far can EBITDA fall?</h3>
+  <div class="grid2">
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>2027 threshold</th><th>UW EBITDA</th><th>Fall</th></tr></thead>
+      <tbody>
+        <tr><td>Base 2027 Underwriting EBITDA</td><td>$412mm</td><td>–</td></tr>
+        <tr><td>Net leverage reaches 7.5x</td><td>$402mm</td><td class="neg">−2%</td></tr>
+        <tr><td>Fixed charge coverage below 1.0x</td><td>$338mm</td><td class="neg">−18%</td></tr>
+        <tr><td>7.0x first-lien covenant breached</td><td>$257mm</td><td class="neg">−38%</td></tr>
+      </tbody></table></div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Reverse stress: permanent margin cut that breaks the loan</th><th>SOFR 4.0%</th><th>SOFR 5.5%</th></tr></thead>
+      <tbody>
+        <tr><td>Net leverage &gt; 6.0x at 2033 (cannot refinance)</td><td>−90 bps</td><td>−58 bps</td></tr>
+        <tr><td>Fixed charge coverage &lt; 1.0x</td><td>−122 bps</td><td>−47 bps</td></tr>
+        <tr><td>DSCR &lt; 1.0x</td><td>−235 bps</td><td>−173 bps</td></tr>
+        <tr><td>Cash and revolver run out</td><td>−281 bps</td><td>−209 bps</td></tr>
+      </tbody></table></div>
+  </div>
+  <p class="takeaway">Cash coverage runs short at an 18% EBITDA decline, but lenders get no legal right to act until a decline of about 38%, because the covenant is tested on the documents' looser EBITDA. At today's rates, a permanent 90 bps margin cut leaves the loan unrefinanceable at maturity. That is less than OPCH has already lost since FY2023.</p>
+</section>
+
+<!-- ============================ 7. MONTE CARLO ============================ -->
+<section class="memo" id="s7">
+  <div class="sec-head"><span class="sec-no">07</span><h2>Monte Carlo: probability of default</h2></div>
+  <div class="col stack">
+    <p><strong>Why we ran it.</strong> Three fixed cases show what can happen, not how likely it is. The committee needs a probability of default to price the loan and apply a risk limit. We ran 10,000 seven-year paths through the same debt schedule as the Excel model, after confirming the R engine reproduces Excel exactly.</p>
+    <p><strong>What moves on each path:</strong></p>
+    <ul class="clean">
+      <li>Revenue growth: lender base ± 3% a year.</li>
+      <li>SOFR: starts at today's 3.90% and drifts back toward 3.50%, with 75 bps annual volatility.</li>
+      <li>EBITDA margin: random shocks of 40 bps a year around each scenario's trend, 85% of which carry into the next year. OPCH's three annual moves (−61, −59, −8 bps) scatter about 30 bps around their average; 40 bps allows for the short history. The trend enters only through each scenario's drift, so the observed decline is not counted twice. A 60 bps volatility case is reported as a sensitivity.</li>
+      <li>Growth and margin shocks are correlated (0.3).</li>
+    </ul>
+    <p><strong>What counts as default.</strong> Either cash runs out after the revolver is fully drawn, or net leverage is above 6.0x at the 2033 maturity, so the loan cannot be refinanced. On our stricter EBITDA, 6.0x equals about 5.2x on the market's adjusted basis, roughly the average new LBO. In other words, the test asks whether OPCH can refinance at average market leverage. A year of fixed-charge coverage below 1.0x is a cash shortfall the revolver can bridge, not a default.</p>
+    <p><strong>How we decide, fixed before running.</strong> The evidence on margins points in different directions, so no single scenario decides. We weighted four outlooks:</p>
+    <ul class="clean">
+      <li><strong>Margins hold, 20%.</strong> The strategic owner's purchasing scale helps and the biosimilar mix settles.</li>
+      <li><strong>Latest-year pace (−8 bps a year), 30%.</strong> This is the most recent observation.</li>
+      <li><strong>Recent decline repeats (−127 bps by 2033), 30%.</strong> Two of the three observed years fell about 60 bps.</li>
+      <li><strong>Core operating pace (−25 bps a year), 20%.</strong> This is the latest year excluding volatile items, plus the raised CID headwind.</li>
+    </ul>
+    <p>The rule is: weighted seven-year PD ≤ 25% and spread at least 150 bps above annual expected loss. The 25% limit sits at or below the historical seven-year default rate of a B-rated issuer (28.6% over 1920–2006 and 35.5% over 1983–2006 in one major rating agency's study). The loan can be no riskier than the B credit its spread pays for.</p>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>10,000 paths per scenario</th><th>Margins hold</th><th>Latest-year pace</th><th>Decline repeats</th><th>Core pace</th><th class="hl">Weighted</th></tr></thead>
+    <tbody>
+      <tr><td>Weight</td><td>20%</td><td>30%</td><td>30%</td><td>20%</td><td class="hl">100%</td></tr>
+      <tr><td>Average margin decline by 2033</td><td>0 bps</td><td>53 bps</td><td>126 bps</td><td>173 bps</td><td class="hl"></td></tr>
+      <tr><td><strong>7-year probability of default</strong></td><td>10.5%</td><td>25.2%</td><td>54.8%</td><td>74.4%</td><td class="hl"><strong>41.0%</strong></td></tr>
+      <tr class="sub"><td>of which cash runs out</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>0.1%</td><td class="hl">0.0%</td></tr>
+      <tr class="sub"><td>of which cannot refinance at 2033</td><td>10.5%</td><td>25.2%</td><td>54.8%</td><td>74.3%</td><td class="hl">41.0%</td></tr>
+      <tr><td>Principal loss if lenders extend up to 7.0x</td><td>2.9%</td><td>9.5%</td><td>31.1%</td><td>51.5%</td><td class="hl">23.1%</td></tr>
+      <tr><td>Fixed charge coverage &lt; 1.0x in some year</td><td>4.5%</td><td>9.9%</td><td>25.7%</td><td>40.7%</td><td class="hl"></td></tr>
+      <tr><td>Median net leverage at 2033</td><td>4.4x</td><td>5.1x</td><td>6.2x</td><td>7.1x</td><td class="hl"></td></tr>
+      <tr><td>Annual expected loss</td><td>0.36%</td><td>0.95%</td><td>2.44%</td><td>3.81%</td><td class="hl">1.85%</td></tr>
+      <tr><td>Spread cushion over expected loss (358 bps offered)</td><td>322 bps</td><td>263 bps</td><td>115 bps</td><td class="neg">−23 bps</td><td class="hl">173 bps</td></tr>
+      <tr><td>Decision rule</td><td><span class="pill ok">Pass</span></td><td><span class="pill mid">At limit</span></td><td><span class="pill no">Fail</span></td><td><span class="pill no">Fail</span></td><td class="hl"><span class="pill no">Fail: PD</span></td></tr>
+    </tbody></table></div>
+  <p class="note">Sensitivities: decline at twice the recent pace gives a PD of 94.4%. Flat margins with 60 bps volatility, our earlier calibration, give 17.2%.</p>
+  <figure>
+    <figcaption><span class="ft">Default risk crosses our limit after about 50 bps of further margin decline</span><span class="fs">7-year probability of default vs average Underwriting EBITDA margin decline by 2033</span></figcaption>
+    <div class="chart" id="c_pd" style="min-height:320px"></div>
+    <div class="src">Source: Monte Carlo, 10,000 paths per point; same random draws at every point.</div>
+  </figure>
+  <div class="grid2">
+    <div class="col stack">
+      <p><strong>Does the verdict depend on the weights?</strong> No. The weighted PD is 30% on an optimistic weighting and 50% on a cautious one. Both are above the limit.</p>
+      <p><strong>Does it depend on the threshold?</strong> Refinancing at 2033 is the binding risk, so we tested the leverage at which lenders would refinance. Even at 7.0x, about 6.0x on the market's basis and above today's average, the decline-repeats PD is 31%.</p>
+      <p><strong>Is a refinancing failure a loss?</strong> Not always. Many such loans end in an amend-and-extend at a higher spread. If lenders extend anything up to 7.0x without losing principal, the weighted probability of a principal loss is 23%. That is just inside the limit, but only on the most generous reading of the 2033 market.</p>
+    </div>
+    <div class="stack" style="gap:16px">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Weighting view</th><th>Weights*</th><th>Weighted PD</th></tr></thead>
+        <tbody>
+          <tr><td>Optimistic</td><td>40 / 30 / 20 / 10</td><td class="neg">30.2%</td></tr>
+          <tr class="hl"><td>Central (decision)</td><td>20 / 30 / 30 / 20</td><td class="neg">41.0%</td></tr>
+          <tr><td>Cautious</td><td>10 / 20 / 40 / 30</td><td class="neg">50.3%</td></tr>
+        </tbody></table>
+        <p class="note" style="padding:8px 12px">*Margins hold / latest-year pace / decline repeats / core pace, %.</p></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Refinancing threshold</th><th>6.0x</th><th>6.5x</th><th>7.0x</th></tr></thead>
+        <tbody>
+          <tr><td>≈ market-adjusted basis</td><td>5.2x</td><td>5.6x</td><td>6.0x</td></tr>
+          <tr><td>Margins hold</td><td>10.5%</td><td>5.5%</td><td>2.9%</td></tr>
+          <tr class="hl"><td>Recent decline repeats</td><td>54.8%</td><td>42.0%</td><td>31.1%</td></tr>
+        </tbody></table></div>
+    </div>
+  </div>
+  <p class="takeaway">Pricing covers the expected loss: a weighted cushion of 173 bps, which breaks even at S+302 against a Q3-26 market average of S+307. The loan fails on default probability, and default probability is set by leverage, not spread.</p>
+</section>
+
+<!-- ============================ 8. LGD ============================ -->
+<section class="memo" id="s8">
+  <div class="sec-head"><span class="sec-no">08</span><h2>Loss given default and the recovery waterfall</h2></div>
+  <div class="col stack">
+    <p>This is a downside default in 2029: Underwriting EBITDA is 35% below today ($263mm) and the business is sold or reorganised at 6.0x. We assume the revolver is fully drawn, as borrowers do before filing, plus 5% bankruptcy costs and $30mm of priority claims. The revolver and term loan rank equally, and unpaid first-lien amounts join the unsecured pool. R reproduces the Excel recovery tab exactly.</p>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Waterfall, $mm</th><th>Claim</th><th>Recovered</th><th>Recovery</th><th>Value left</th></tr></thead>
+    <tbody>
+      <tr><td>Distressed enterprise value (6.0x × $263mm)</td><td></td><td></td><td></td><td>1,575</td></tr>
+      <tr class="sub"><td>Less bankruptcy costs (5%) and priority claims</td><td></td><td>109</td><td></td><td>1,466</td></tr>
+      <tr><td>Revolver (first lien, fully drawn)</td><td>500</td><td>263</td><td>52.6%</td><td rowspan="2" style="vertical-align:middle">0</td></tr>
+      <tr class="hl"><td><strong>Term loan B (first lien, ours)</strong></td><td>2,290</td><td>1,203</td><td><strong>52.6%</strong></td></tr>
+      <tr><td>Senior unsecured notes</td><td>750</td><td>0</td><td class="neg">0%</td><td>0</td></tr>
+      <tr><td>Trade payables and other unsecured</td><td>640</td><td>0</td><td class="neg">0%</td><td>0</td></tr>
+      <tr><td>Equity</td><td></td><td>0</td><td class="neg">wiped out</td><td></td></tr>
+    </tbody></table></div>
+  <div class="grid2">
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Term loan recovery</th><th>−20%</th><th>−35%</th><th>−50%</th></tr></thead>
+      <tbody>
+        <tr><td>Sold at 5.0x</td><td>54%</td><td>44%</td><td class="neg">33%</td></tr>
+        <tr><td>Sold at 6.0x</td><td>65%</td><td class="hl"><strong>53%</strong></td><td>40%</td></tr>
+        <tr><td>Sold at 7.0x</td><td>76%</td><td>62%</td><td>47%</td></tr>
+        <tr><td>Sold at 8.0x</td><td>87%</td><td>70%</td><td>54%</td></tr>
+      </tbody></table>
+      <p class="note" style="padding:8px 12px">Columns show the EBITDA decline at default.</p></div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Structure (claims at close)</th><th>1L recovery</th><th>LGD</th></tr></thead>
+      <tbody>
+        <tr><td>A: all $3.15bn first lien</td><td class="neg">40%</td><td>60%</td></tr>
+        <tr class="hl"><td>B: $2.4bn 1L + $750mm unsecured notes</td><td>51%</td><td>49%</td></tr>
+        <tr><td>C: $2.4bn 1L + $750mm second lien</td><td>51%</td><td>49%</td></tr>
+        <tr class="sub"><td>Monte Carlo average, defaulted paths (weighted)</td><td>67%</td><td>33%</td></tr>
+        <tr class="sub"><td>Benchmark: cov-lite 1L, 2023–mid 2025</td><td>57%</td><td>43%</td></tr>
+        <tr class="sub"><td>Benchmark: cov-lite 1L, long-term</td><td>64%</td><td>36%</td></tr>
+      </tbody></table></div>
+  </div>
+  <p class="takeaway">In an operating collapse we lose about 47 cents per dollar, worse than the 43-cent covenant-lite benchmark, because $2.8bn of first-lien claims share $1.5bn of value. Losses are smaller, about 33 cents on average, when default is a refinancing failure with the business still intact. Capping first-lien debt is worth about 11 points of recovery.</p>
+</section>
+
+<!-- ============================ 9. EL / UL ============================ -->
+<section class="memo" id="s9">
+  <div class="sec-head"><span class="sec-no">09</span><h2>Expected and unexpected loss</h2></div>
+  <div class="col stack">
+    <p>On every simulated path, loss is the term loan outstanding at default times one minus recovery, as a share of original par. Expected loss is the average across all paths and belongs in the price. Unexpected loss is how far losses can run beyond that average, and it must be absorbed by capital. The weighted distribution pools the four margin scenarios at their decision weights.</p>
+  </div>
+  <figure>
+    <figcaption><span class="ft">Most paths lose nothing; defaults lose about 30% of par on average</span><span class="fs">Distribution of 7-year credit loss on paths with a loss, % of par</span></figcaption>
+    <div class="legend" id="lg_loss"></div>
+    <div class="chart" id="c_loss" style="min-height:300px"></div>
+    <div class="src">Source: Monte Carlo, 10,000 paths per scenario. Paths with no loss (59% weighted, 89.5% with margins holding) are not drawn.</div>
+  </figure>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>7-year loss, % of par ($ on a $50mm hold)</th><th>Margins hold</th><th class="hl">Probability-weighted</th></tr></thead>
+    <tbody>
+      <tr><td>Expected loss</td><td>2.5% ($1.3mm) · 0.36%/yr</td><td class="hl">12.0% ($6.0mm) · 1.8%/yr</td></tr>
+      <tr><td>Unexpected loss (1 standard deviation)</td><td>8.0% ($4.0mm)</td><td class="hl">16.1% ($8.0mm)</td></tr>
+      <tr><td>Worst 1 in 100 (credit VaR 99%)</td><td>36.9% ($18.5mm)</td><td class="hl">51.9% ($26.0mm)</td></tr>
+      <tr><td>Worst 1 in 1,000 (credit VaR 99.9%)</td><td>47.0% ($23.5mm)</td><td class="hl">60.0% ($30.0mm)</td></tr>
+      <tr><td>Average of the worst 1% (expected shortfall)</td><td>41.2%</td><td class="hl">55.8%</td></tr>
+      <tr><td>Standalone economic capital (VaR 99.9% − EL)</td><td>44.5% ($22.2mm)</td><td class="hl">48.0% ($24.0mm)</td></tr>
+    </tbody></table></div>
+  <p class="takeaway">The loss profile is all-or-nothing. The spread pays for the expected loss of about 1.8% a year, but in one outcome in a hundred we lose more than half the loan. That concentrated tail is an argument for a smaller loan, and at the very least a smaller hold.</p>
+  <p class="note">Economic capital here is for this loan standing alone; inside a diversified portfolio its capital contribution is lower.</p>
+</section>
+
+<!-- ============================ 10. DEBT SIZING ============================ -->
+<section class="memo" id="s10">
+  <div class="sec-head"><span class="sec-no">10</span><h2>Debt sizing: what structure would work</h2></div>
+  <div class="col stack">
+    <p>We re-ran the Monte Carlo at lower debt levels, cutting the first lien and notes pro rata and replacing every dollar removed with sponsor equity.</p>
+  </div>
+  <figure>
+    <figcaption><span class="ft">At $2.9bn of term debt the loan fits within our risk limit</span><span class="fs">7-year probability of default vs total term debt at close</span></figcaption>
+    <div class="legend" id="lg_size"></div>
+    <div class="chart" id="c_size" style="min-height:320px"></div>
+    <div class="src">Source: Monte Carlo, 10,000 paths per point per scenario.</div>
+  </figure>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Total term debt</th><th>Net leverage</th><th>Margins hold</th><th>Decline repeats</th><th class="hl">Weighted PD</th><th>Equity share</th></tr></thead>
+    <tbody>
+      <tr><td>$3.15bn (as proposed)</td><td>7.7x</td><td>10.5%</td><td>54.8%</td><td class="hl neg">41.0%</td><td>47.7%</td></tr>
+      <tr><td>$3.00bn</td><td>7.3x</td><td>4.9%</td><td>40.1%</td><td class="hl neg">29.6%</td><td>50.2%</td></tr>
+      <tr class="hl"><td><strong>$2.90bn (maximum within limit)</strong></td><td>7.0x</td><td>2.8%</td><td>30.7%</td><td class="hl"><strong>22.9%</strong></td><td>51.9%</td></tr>
+      <tr><td>$2.75bn</td><td>6.7x</td><td>0.9%</td><td>18.4%</td><td class="hl">14.3%</td><td>54.3%</td></tr>
+      <tr><td>$2.50bn</td><td>6.1x</td><td>0.1%</td><td>5.7%</td><td class="hl">5.1%</td><td>58.5%</td></tr>
+    </tbody></table></div>
+  <p class="takeaway">Removing $250mm of debt, about 8%, cuts the weighted PD from 41% to 23%. Near the proposed size, each additional $50mm of debt adds about 3–4 points of PD.</p>
+</section>
+
+<!-- ============================ 11. TAKEOUT ============================ -->
+<section class="memo" id="s11">
+  <div class="sec-head"><span class="sec-no">11</span><h2>The strategic investor's takeout option</h2></div>
+  <div class="col stack">
+    <p>The strategic investor has disclosed a framework to acquire the sponsor's stake later, subject to conditions and approvals; timing and price are not public. A change of control would most likely repay our loan at par. We overlaid a takeout on the simulated paths, with three conditions:</p>
+    <ul class="clean">
+      <li>It happens with a given probability between 2029 and 2031.</li>
+      <li>It happens only if net leverage is at or below 7.0x that year, since an acquirer buys a healthy business.</li>
+      <li>It rescues a path only if it comes before default.</li>
+    </ul>
+  </div>
+  <figure>
+    <figcaption><span class="ft">A takeout lowers default risk, but even a certain one is not enough</span><span class="fs">7-year probability of default vs probability of a strategic takeout in 2029–2031</span></figcaption>
+    <div class="legend" id="lg_take"></div>
+    <div class="chart" id="c_take" style="min-height:300px"></div>
+    <div class="src">Source: Monte Carlo, 10,000 paths per scenario; co-investor disclosure, October 2026.</div>
+  </figure>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Probability-weighted</th><th>No takeout</th><th>50% chance</th><th>Certain</th></tr></thead>
+    <tbody>
+      <tr><td>Repaid early through takeout</td><td>0%</td><td>28%</td><td>57%</td></tr>
+      <tr><td>7-year probability of default</td><td class="neg">41.0%</td><td class="neg">36.8%</td><td class="neg">32.2%</td></tr>
+      <tr class="sub"><td>Sensitivity: acquirer buys at any leverage</td><td>41.0%</td><td>20.5%</td><td>0%</td></tr>
+    </tbody></table></div>
+  <p class="takeaway">The takeout is real upside, but it mostly rescues healthy paths that were never at risk. We do not underwrite to it. It is a reason a well-structured loan could be repaid early, not a reason to accept the proposed leverage.</p>
+</section>
+
+<!-- ============================ 12. BENCHMARKS ============================ -->
+<section class="memo" id="s12">
+  <div class="sec-head"><span class="sec-no">12</span><h2>How our numbers compare with the market</h2></div>
+  <div class="tbl-wrap"><table class="wrap">
+    <thead><tr><th>Measure</th><th>OPCH</th><th>Market reference</th><th>Read</th></tr></thead>
+    <tbody>
+      <tr><td>Total leverage at close</td><td class="r">7.8x UW · 6.7x mgmt</td><td>~5.0x 2025 syndicated LBO average; 4.8–5.3x for 2025–26 originations</td><td><span class="pill no">2–3 turns high</span></td></tr>
+      <tr><td>Issuer credit rating</td><td class="r">BB-, CreditWatch Negative</td><td>Agency expects adjusted leverage well above its 4.0x downgrade trigger (2.6x pre-deal); a multi-notch downgrade possible after close</td><td><span class="pill no">Heading to B / B-</span></td></tr>
+      <tr><td>Regulatory reference</td><td class="r">6.7x mgmt</td><td>6.0x "raises concerns for most industries" (2013 interagency guidance; the OCC and FDIC withdrew it and the 2014 FAQs on Dec 5, 2025; used here as a reference only)</td><td><span class="pill no">Above</span></td></tr>
+      <tr><td>Launch interest coverage</td><td class="r">1.8x</td><td>2.2–2.3x for 2024–26 vintages</td><td><span class="pill no">Below</span></td></tr>
+      <tr><td>Equity contribution</td><td class="r">47.7%</td><td>~51% in 2023; ~41% ten-year average</td><td><span class="pill ok">In line</span></td></tr>
+      <tr><td>First-lien spread</td><td class="r">S + 325 (modelled); breakeven S + 302</td><td>Average new-issue LBO loan S + 307 in Q3-26 (S + 330 YTD); several single-B LBOs at S + 250</td><td><span class="pill mid">Market may price tighter</span></td></tr>
+      <tr><td>7-year probability of default</td><td class="r">41% weighted · 11% if margins hold</td><td>B-rated historical 7-year cumulative default: 28.6% (1920–2006), 35.5% (1983–2006); 5-year 17.9% (1981–2017, a second agency)</td><td><span class="pill no">Worse than average B</span></td></tr>
+      <tr><td>First-lien recovery</td><td class="r">53% downside · 67% MC avg</td><td>Cov-lite 1L: 57% (2023–mid 2025), 64% long-term; covenanted 66% / 75%</td><td><span class="pill mid">Near benchmark</span></td></tr>
+      <tr><td>Purchase multiple</td><td class="r">12.4x mgmt · 14.4x UW</td><td>Strategic, premium-priced take-private (~37% premium)</td><td><span class="pill mid">Full price</span></td></tr>
+    </tbody></table></div>
+  <p class="note">Market leverage averages are computed on sponsor-adjusted EBITDA, so the like-for-like comparison is management's 6.7x, not our 7.8x. Rating-agency default rates include distressed exchanges and missed payments, which is close to our definition (cash runs out, or the loan cannot be refinanced on market terms).</p>
+</section>
+
+<!-- ============================ 13. RISKS ============================ -->
+<section class="memo" id="s13">
+  <div class="sec-head"><span class="sec-no">13</span><h2>Key risks and mitigants</h2></div>
+  <div class="tbl-wrap"><table class="wrap">
+    <thead><tr><th>Risk</th><th>Evidence</th><th>Mitigant / what we require</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Gross margin erosion</strong></td><td>−375 bps since FY2023; 2026 CID headwind raised to ~$55mm; SG&amp;A cushion nearly spent.</td><td>Size debt to the weighted case: total term debt ≤ $2.9bn.</td></tr>
+      <tr><td><strong>Growth stall</strong></td><td>LTM EBITDA flat against FY2025; 2026 revenue guidance +0.5–2.2%.</td><td>Lender base already anchored to guidance; confirm with Q3-26 results.</td></tr>
+      <tr><td><strong>Refinancing at 2033</strong></td><td>Over 99% of simulated defaults are refinancing failures.</td><td>Lower leverage at close; 50% excess-cash-flow sweep with no step-down above 5.0x.</td></tr>
+      <tr><td><strong>Floating-rate exposure</strong></td><td>At 5.5% SOFR a 47 bps margin cut breaks fixed-charge coverage.</td><td>Interest-rate hedging on at least 50% of term debt for three years (not modelled).</td></tr>
+      <tr><td><strong>Loose EBITDA definition, covenant-lite TLB</strong></td><td>Documents' EBITDA 26% above ours; 35% synergy basket; covenant trips only at a 38% decline.</td><td>Cap synergy add-backs at 15% with 18-month realisation; test the revolver covenant on capped EBITDA.</td></tr>
+      <tr><td><strong>Value leakage and priming</strong></td><td>Sponsor-owned, covenant-lite structure.</td><td>Limits on restricted payments and dividend recaps; protections against moving collateral away or putting new debt ahead of the first lien.</td></tr>
+      <tr><td><strong>Tight market pricing</strong></td><td>Q3-26 LBO loans average S + 307; several B credits at S + 250.</td><td>Below the S + 302 breakeven the loan fails on price as well; do not chase tighter pricing.</td></tr>
+      <tr><td><strong>Payer and reimbursement</strong></td><td>Largest payer ~14%; ~12% government; drug pricing reform.</td><td>Diligence the top payer contracts' terms and renewal dates.</td></tr>
+      <tr><td><strong>Takeout uncertainty</strong></td><td>A framework only; no timing or price.</td><td>Treated as upside; not underwritten.</td></tr>
+    </tbody></table></div>
+</section>
+
+<!-- ============================ 14. OPTIONS ============================ -->
+<section class="memo" id="s14">
+  <div class="sec-head"><span class="sec-no">14</span><h2>Our options, what would change our view, and next steps</h2></div>
+  <div class="col stack">
+    <p>The banks have committed up to $3.15bn, so a participating fund cannot set the structure. It can only choose whether to commit, how much, and at what price. Weak demand at launch can lead to "flex", where debt is moved into equity or terms are tightened. That is the realistic route to the structure we can support.</p>
+  </div>
+  <div class="tbl-wrap"><table class="wrap">
+    <thead><tr><th>Option</th><th>What it changes</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td><strong>1. Do not commit at launch terms</strong></td><td>Avoids a weighted PD of 41% for a B-type spread.</td><td><span class="pill ok">Recommended</span></td></tr>
+      <tr><td><strong>2. Commit if flex cuts term debt to ≤ $2.9bn</strong></td><td>Weighted PD 23%; equity share 52%; spread ≥ S + 300, OID ≤ 99.0, plus the documentation asks in Section 13.</td><td><span class="pill ok">Approve on these terms</span></td></tr>
+      <tr><td><strong>3. Commit a smaller hold ($25mm) at launch terms</strong></td><td>Caps the worst 1-in-1,000 loss at about $15mm, but leaves PD unchanged at 41%.</td><td><span class="pill no">Not recommended</span></td></tr>
+      <tr><td><strong>4. Ask for a deeper OID (e.g. 97.0)</strong></td><td>Adds about 65 bps of yield (two points over a ~3-year life); does not change default probability.</td><td><span class="pill no">Does not fix the issue</span></td></tr>
+      <tr><td><strong>5. Revisit in the secondary market after Q3/Q4 results</strong></td><td>Lets us see whether margins stabilise before taking risk.</td><td><span class="pill mid">Keep open</span></td></tr>
+    </tbody></table></div>
+  <div class="grid2">
+    <div class="callout"><span class="eyebrow">What would change our view</span>
+      <ul class="clean">
+        <li><strong>Toward yes at $3.15bn:</strong> gross margin holds near 19% and EBITDA dollars grow again for two quarters. With margins holding, the PD is 11%; the latest-year pace sits right at the limit (25%).</li>
+        <li><strong>Toward pass at any size:</strong> Q3-26 shows core erosion of 25 bps a year or more, the documents keep the 35% synergy basket, or pricing comes in below S + 300.</li>
+        <li>Merger proxy projections materially below our lender base.</li>
+      </ul></div>
+    <div class="callout"><span class="eyebrow">Next steps</span>
+      <ul class="clean">
+        <li>Q3 2026 results (due early November): roll LTM to September and re-run every model.</li>
+        <li>Merger proxy: fully diluted share count, management projections, financing terms and the change-of-control mechanics of the strategic takeout.</li>
+        <li>Syndication: actual pricing, tranche split, covenants and EBITDA definition, to replace modelled terms.</li>
+        <li>Ratings: the issuer is BB- on CreditWatch Negative with a multi-notch downgrade signalled. Confirm the post-close issuer rating and the rating on the new first-lien facility.</li>
+      </ul></div>
+  </div>
+</section>
+
+<!-- ============================ APPENDIX A ============================ -->
+<section class="memo" id="appA">
+  <div class="sec-head"><span class="sec-no">A</span><h2>Assumptions register</h2></div>
+  <p class="col">Every number not taken directly from a filing is listed here, with its basis and how we tested it. All are inputs in the Excel model or in the settings block of each R script, and can be changed.</p>
+  <div class="tbl-wrap"><table class="wrap">
+    <thead><tr><th>Assumption</th><th>Value</th><th>Basis</th><th>Tested</th></tr></thead>
+    <tbody>
+      <tr><td colspan="4"><span class="eyebrow">Transaction</span></td></tr>
+      <tr><td>Diluted shares acquired</td><td class="r">150.4mm</td><td>149.8mm basic (Q2-26 10-Q cover) plus dilutive awards; reproduces the announced ~$5.8bn EV. The fully diluted count may be ~152–153mm.</td><td>+$60–80mm equity; verify in proxy</td></tr>
+      <tr><td>Tranche split (Structure B)</td><td class="r">$2.4bn 1L / $750mm notes</td><td>Not disclosed; the common sponsor structure.</td><td>Structures A and C</td></tr>
+      <tr><td>Financing fees / OID / advisory</td><td class="r">2.25% / 99.0 / $75mm</td><td>Typical sponsor term-loan terms.</td><td>–</td></tr>
+      <tr><td>Minimum operating cash</td><td class="r">$50mm</td><td>Operating need for a $5.7bn-revenue business.</td><td>–</td></tr>
+      <tr><td colspan="4"><span class="eyebrow">Pricing and rates</span></td></tr>
+      <tr><td>1L spread / floor</td><td class="r">S + 325 / 0.50%</td><td>Q3-26 LBO average S + 307; priced above average for above-average leverage.</td><td>Breakeven S + 302 solved</td></tr>
+      <tr><td>Notes coupon / revolver / undrawn fee</td><td class="r">7.50% / S + 300 / 37.5 bps</td><td>Market convention for B-rated issuers.</td><td>–</td></tr>
+      <tr><td>Amortisation / cash sweep</td><td class="r">1% p.a. / 50% of excess cash flow</td><td>Market standard.</td><td>–</td></tr>
+      <tr><td>SOFR base / stress</td><td class="r">3.90% → 3.50% / 5.5–6.0%</td><td>SOFR fixing of 3.90% on Oct 22, 2026, easing to a 3.50% long-run level by 2029; stress near the 2023–24 peaks.</td><td>Reverse stress 2–8%</td></tr>
+      <tr><td colspan="4"><span class="eyebrow">Operations</span></td></tr>
+      <tr><td>Lender base growth / margin</td><td class="r">2.0%, 3.0%, then 3.5% / flat</td><td>Anchored to 2026 guidance ($5.675–5.775bn, +0.5–2.2%); half the 7% management case.</td><td>Downside and MC</td></tr>
+      <tr><td>Downside case</td><td class="r">−3% revenue 2028; −100 to −250 bps margin</td><td>A reimbursement cut plus wage and mix pressure.</td><td>Stressed rates</td></tr>
+      <tr><td>Capex / tax D&amp;A / working capital</td><td class="r">0.75% / 1.25% / 5.4% of Δ revenue</td><td>FY2025 ratios (0.73%, 1.25%, 5.4%).</td><td>–</td></tr>
+      <tr><td>Cash tax rate / interest deduction cap</td><td class="r">25% / 30% of EBITDA</td><td>FY25 effective rate 26.6%; Sec. 163(j). Disallowed interest is not carried forward (conservative).</td><td>–</td></tr>
+      <tr><td>Cash rent</td><td class="r">0.54% of revenue</td><td>FY2025 cash operating lease payments ($30.7mm).</td><td>–</td></tr>
+      <tr><td colspan="4"><span class="eyebrow">EBITDA and covenants</span></td></tr>
+      <tr><td>CARVE treatment</td><td class="r">SBC, restructuring, debt loss rejected</td><td>Each fails at least one CARVE test (Section 3).</td><td>SBC and debt-loss sensitivity</td></tr>
+      <tr><td>Synergies in documents' EBITDA</td><td class="r">10% (cap 35%)</td><td>Current credit agreement clause (a)(vii).</td><td>Used only for the covenant</td></tr>
+      <tr><td>New revolver covenant</td><td class="r">7.0x 1L net, springing</td><td>~35% cushion at close, typical for sponsor deals.</td><td>–</td></tr>
+      <tr><td colspan="4"><span class="eyebrow">Monte Carlo</span></td></tr>
+      <tr><td>Paths / horizon / seed</td><td class="r">10,000 / 7 years / fixed</td><td>The same random draws in every scenario, for a fair comparison.</td><td>–</td></tr>
+      <tr><td>Revenue growth noise</td><td class="r">± 3.0% a year (sd)</td><td>Around the lender base path.</td><td>–</td></tr>
+      <tr><td>Margin shock / persistence</td><td class="r">40 bps sd / 0.85</td><td>OPCH's annual moves scatter ~30 bps around their mean; 40 bps allows for the short history. The trend enters only through scenario drift, so it is not counted twice.</td><td>60 bps sensitivity</td></tr>
+      <tr><td>Growth–margin correlation</td><td class="r">0.30</td><td>Volume and operating leverage move together.</td><td>–</td></tr>
+      <tr><td>SOFR process</td><td class="r">Starts 3.90%, reverts to 3.5%, speed 0.30, sd 75 bps</td><td>Mean-reverting rate model.</td><td>–</td></tr>
+      <tr><td>Refinancing threshold</td><td class="r">6.0x net at 2033</td><td>Equal to ~5.2x on market-adjusted EBITDA, about the average new LBO.</td><td>6.5x and 7.0x</td></tr>
+      <tr><td>Margin scenarios and weights</td><td class="r">Hold 20% / latest pace 30% / repeats 30% / core pace 20%</td><td>Fixed before the run; each weight tied to evidence (Section 7).</td><td>Optimistic and cautious weightings</td></tr>
+      <tr><td>Decision rule</td><td class="r">Weighted PD ≤ 25%, cushion ≥ 150 bps</td><td>25% is at or below historical B-rated 7-year default (28.6–35.5%).</td><td>All scenarios reported</td></tr>
+      <tr><td>Amend-and-extend view</td><td class="r">Extension without loss up to 7.0x</td><td>Many maturity defaults end in extensions, not losses.</td><td>Reported alongside PD</td></tr>
+      <tr><td colspan="4"><span class="eyebrow">Recovery</span></td></tr>
+      <tr><td>Distressed multiple</td><td class="r">6.0x (MC: mean 6.0x, sd 0.75, 4–8x)</td><td>Well below the 12–14x purchase multiple.</td><td>5.0–8.0x grid</td></tr>
+      <tr><td>Further EBITDA loss in distress</td><td class="r">15% (MC); −35% at default (waterfall)</td><td>Value deteriorates through a restructuring.</td><td>−20% to −50% grid</td></tr>
+      <tr><td>Bankruptcy costs / priority claims / revolver</td><td class="r">5% of EV / $30mm / 100% drawn</td><td>Standard recovery convention.</td><td>–</td></tr>
+      <tr><td colspan="4"><span class="eyebrow">Strategic takeout</span></td></tr>
+      <tr><td>Takeout window / condition / repayment</td><td class="r">2029–2031 / ≤ 7.0x / par, no premium</td><td>Framework disclosed without timing or price.</td><td>0–100% probability; any-leverage case</td></tr>
+    </tbody></table></div>
+</section>
+
+<!-- ============================ APPENDIX B ============================ -->
+<section class="memo" id="appB">
+  <div class="sec-head"><span class="sec-no">B</span><h2>Methodology and validation</h2></div>
+  <div class="grid2">
+    <div class="callout"><span class="eyebrow">How the work fits together</span>
+      <ul class="clean">
+        <li><strong>Excel credit model:</strong> historicals, EBITDA bridge, sources and uses, capital structure, seven-year projections, credit statistics and recovery waterfall.</li>
+        <li><strong>R, independent analysis:</strong> reverse stress test, Monte Carlo PD, loss given default, loss distribution, debt sizing, margin decomposition and takeout overlay.</li>
+        <li>The R engines read their inputs from the Excel file, so one set of assumptions drives everything.</li>
+      </ul></div>
+    <div class="callout"><span class="eyebrow">How we checked it</span>
+      <ul class="clean">
+        <li>126 of 126 filing inputs match the filings exactly. EBITDA and Adjusted EBITDA tie to the company in every period, sources equal uses, and EV matches the announced ~$5.8bn.</li>
+        <li>We wrote an independent re-implementation of the model without reading the Excel formulas. It matches about 1,900 values across all 18 case × structure × rate combinations with zero differences, re-checked after every input change.</li>
+        <li>Each R script stops unless it reproduces Excel to within 0.01 (term loan balance, minimum FCCR and DSCR, liquidity, recovery). The weighted results are checked against the scenario results they are built from.</li>
+        <li>Expected loss from the loss distribution equals the Monte Carlo figure, and unexpected loss equals its analytic formula.</li>
+      </ul></div>
+  </div>
+  <div class="callout"><span class="eyebrow">Changes after senior review (v2)</span>
+    <ul class="clean">
+      <li>SOFR updated to the current 3.90% fixing (it was 3.50%).</li>
+      <li>Lender base growth lowered to match 2026 guidance (it was 4–5%).</li>
+      <li>Margin volatility recalibrated around the trend (40 bps; it was 60 bps) to avoid counting the decline twice.</li>
+      <li>The decision moved from one scenario to a probability-weighted view, with weights set before re-running.</li>
+      <li>The 25% limit is now tied to B-rated default history, market benchmarks are updated to Q3-26, and credit merits and realistic options have been added.</li>
+      <li>The corrections made the result worse, not better: the proposed structure's weighted PD is 41%. The maximum supportable debt is unchanged at $2.9bn.</li>
+    </ul></div>
+  <p class="note">Limitations: public filings only (no general ledger or quality-of-earnings report). Loan terms are modelled until syndication. Interest is computed on opening balances. The revolver's own maturity is flagged but not modelled as a default trigger.</p>
+</section>
+
+<!-- ============================ APPENDIX C ============================ -->
+<section class="memo" id="appC">
+  <div class="sec-head"><span class="sec-no">C</span><h2>Sources</h2></div>
+  <div class="tbl-wrap"><table class="wrap">
+    <thead><tr><th>Document</th><th>Used for</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://www.sec.gov/Archives/edgar/data/1014739/000101473926000008/bios-20251231.htm" target="_blank" rel="noopener">OPCH Form 10-K, FY2025</a></td><td>Financial statements FY2023–25, business, payers, footprint, MD&amp;A on gross margin, equity awards</td></tr>
+      <tr><td>OPCH Form 10-K, FY2023</td><td>December 2023 balance sheet and debt</td></tr>
+      <tr><td><a href="https://www.sec.gov/Archives/edgar/data/0001014739/000101473926000023/bios-20260630.htm" target="_blank" rel="noopener">OPCH Form 10-Q, Q2 2026</a></td><td>H1 2025/26, June 2026 balance sheet, debt note, CID headwind</td></tr>
+      <tr><td><a href="https://www.sec.gov/Archives/edgar/data/1014739/000101473926000005/exhibit991-12312025.htm" target="_blank" rel="noopener">OPCH earnings release, FY2025</a>; <a href="https://www.sec.gov/Archives/edgar/data/1014739/000101473925000008/exhibit991-12312024.htm" target="_blank" rel="noopener">FY2024</a>; <a href="https://sec.gov/Archives/edgar/data/1014739/000101473926000021/exhibit991-q22026.htm" target="_blank" rel="noopener">Q2 2026</a></td><td>Adjusted EBITDA reconciliations; 2026 guidance (revenue $5.675–5.775bn)</td></tr>
+      <tr><td><a href="https://www.sec.gov/Archives/edgar/data/0001014739/000110465925093337/tm2526732d1_ex10-1.htm" target="_blank" rel="noopener">Fourth Amendment to the First Lien Credit Agreement (Sep 2025), Exhibit A</a></td><td>EBITDA and net income definitions, covenants, pricing grid</td></tr>
+      <tr><td><a href="https://www.sec.gov/Archives/edgar/data/1014739/000110465921131786/tm2131162d1_ex4-1.htm" target="_blank" rel="noopener">4.375% Senior Notes Indenture (Oct 2021)</a></td><td>Call schedule (par from October 2026)</td></tr>
+      <tr><td>OPCH Form 8-K, October 5, 2026 (merger agreement)</td><td>Price, equity and debt commitments, termination fees</td></tr>
+      <tr><td>Co-investor Form 8-K press release, October 6, 2026</td><td>EV, premium, ownership split, takeout framework</td></tr>
+      <tr><td><a href="https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3640592" target="_blank" rel="noopener">Rating agency: "Option Care Health Inc. Ratings Placed On CreditWatch Negative On Announced Acquisition," October 8, 2026</a></td><td>'BB-' issuer rating on CreditWatch Negative; deal valued at ~$5.8bn; 2.6x pre-deal adjusted leverage; 4.0x downgrade trigger; possible multi-notch downgrade</td></tr>
+      <tr><td><a href="https://www.sofrrate.com/sofr-rate/2026-10" target="_blank" rel="noopener">SOFR daily fixings, October 2026</a></td><td>Current SOFR (3.90%, Oct 22, 2026)</td></tr>
+      <tr><td>Leveraged-loan market data, Q3 2026 (financial press, Oct 21, 2026)</td><td>New-issue LBO spreads</td></tr>
+      <tr><td>Valuation advisory private markets update, Oct 8, 2026</td><td>Leverage and interest coverage by vintage</td></tr>
+      <tr><td>Investment bank debt market review, Q4 2025</td><td>2025 LBO leverage</td></tr>
+      <tr><td>Leveraged-loan market data on 2023 LBOs</td><td>Equity contribution</td></tr>
+      <tr><td>Rating-agency corporate default studies (1920–2006; 1981–2017)</td><td>B-rated cumulative default rates; basis for the 25% limit</td></tr>
+      <tr><td>Rating-agency recovery analysis via financial press</td><td>Covenant-lite and covenanted first-lien recoveries</td></tr>
+      <tr><td>2013 interagency leveraged-lending guidance; withdrawal by the <a href="https://www.occ.gov/news-issuances/news-releases/2025/nr-ia-2025-119.html" target="_blank" rel="noopener">OCC</a> and <a href="https://www.fdic.gov/news/press-releases/2025/interagency-statement-occ-and-fdic-withdrawal-interagency-leveraged" target="_blank" rel="noopener">FDIC</a>, December 5, 2025</td><td>6.0x leverage reference and its current status</td></tr>
+    </tbody></table></div>
+</section>
+
+<footer class="foot">
+  <span>Option Care Health · First-Lien Term Loan B · Investment Committee Memorandum</span>
+  <span>Financial data as of June 30, 2026</span>
+</footer>
+</div>
+
+<script>
+const D = {"pd_curve": {"x": [-0.9, 24.1, 49.1, 74.1, 99.1, 124.1, 149.1, 174.1, 199.1, 224.1, 249.1, 274.1, 299.1], "pd": [0.105, 0.16, 0.2378, 0.3285, 0.4297, 0.5412, 0.6455, 0.7457, 0.826, 0.8911, 0.9385, 0.9667, 0.9832]}, "sizing_decline": {"debt": [3150.0, 3100.0, 3050.0, 3000.0, 2950.0, 2900.0, 2850.0, 2800.0, 2750.0, 2700.0, 2650.0, 2600.0, 2550.0, 2500.0, 2450.0, 2400.0, 2350.0, 2300.0, 2250.0, 2200.0, 2150.0, 2100.0, 2050.0, 2000.0, 1950.0, 1900.0, 1850.0, 1800.0, 1750.0, 1700.0, 1650.0, 1600.0, 1550.0, 1500.0], "lev": [7.67, 7.54, 7.42, 7.29, 7.17, 7.05, 6.92, 6.8, 6.68, 6.55, 6.43, 6.3, 6.18, 6.06, 5.93, 5.81, 5.69, 5.56, 5.44, 5.31, 5.19, 5.07, 4.94, 4.82, 4.69, 4.57, 4.45, 4.32, 4.2, 4.08, 3.95, 3.83, 3.7, 3.58], "pd": [0.5481, 0.4997, 0.4492, 0.4014, 0.3558, 0.3074, 0.2659, 0.2253, 0.1843, 0.1524, 0.1229, 0.0979, 0.0761, 0.0573, 0.0423, 0.0322, 0.0235, 0.0163, 0.0108, 0.0073, 0.0045, 0.0025, 0.0017, 0.0011, 0.0009, 0.0003, 0.0002, 0.0002, 0.0002, 0.0001, 0.0001, 0.0, 0.0, 0.0]}, "sizing_stable": {"debt": [3150.0, 3100.0, 3050.0, 3000.0, 2950.0, 2900.0, 2850.0, 2800.0, 2750.0, 2700.0, 2650.0, 2600.0, 2550.0, 2500.0, 2450.0, 2400.0, 2350.0, 2300.0, 2250.0, 2200.0, 2150.0, 2100.0, 2050.0, 2000.0, 1950.0, 1900.0, 1850.0, 1800.0, 1750.0, 1700.0, 1650.0, 1600.0, 1550.0, 1500.0], "lev": [7.67, 7.54, 7.42, 7.29, 7.17, 7.05, 6.92, 6.8, 6.68, 6.55, 6.43, 6.3, 6.18, 6.06, 5.93, 5.81, 5.69, 5.56, 5.44, 5.31, 5.19, 5.07, 4.94, 4.82, 4.69, 4.57, 4.45, 4.32, 4.2, 4.08, 3.95, 3.83, 3.7, 3.58], "pd": [0.105, 0.0818, 0.0641, 0.0486, 0.0369, 0.0282, 0.0206, 0.0145, 0.0095, 0.0068, 0.0037, 0.0025, 0.0014, 0.0011, 0.001, 0.0004, 0.0003, 0.0002, 0.0002, 0.0002, 0.0001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}, "sizing_weighted": {"debt": [3150.0, 3100.0, 3050.0, 3000.0, 2950.0, 2900.0, 2850.0, 2800.0, 2750.0, 2700.0, 2650.0, 2600.0, 2550.0, 2500.0, 2450.0, 2400.0, 2350.0, 2300.0, 2250.0, 2200.0, 2150.0, 2100.0, 2050.0, 2000.0, 1950.0, 1900.0, 1850.0, 1800.0, 1750.0, 1700.0, 1650.0, 1600.0, 1550.0, 1500.0], "lev": [7.67, 7.54, 7.42, 7.29, 7.17, 7.05, 6.92, 6.8, 6.68, 6.55, 6.43, 6.3, 6.18, 6.06, 5.93, 5.81, 5.69, 5.56, 5.44, 5.31, 5.19, 5.07, 4.94, 4.82, 4.69, 4.57, 4.45, 4.32, 4.2, 4.08, 3.95, 3.83, 3.7, 3.58], "pd": [0.4098, 0.3701, 0.331, 0.2958, 0.2625, 0.2289, 0.1982, 0.1697, 0.1432, 0.1203, 0.0988, 0.0813, 0.0643, 0.051, 0.0393, 0.0303, 0.023, 0.0167, 0.012, 0.0087, 0.0061, 0.0039, 0.0027, 0.0017, 0.0011, 0.0005, 0.0004, 0.0003, 0.0002, 0.0001, 0.0001, 0.0, 0.0, 0.0]}, "takeout_decline": {"p": [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0], "pd": [0.5481, 0.5426, 0.5363, 0.5315, 0.5259, 0.5207, 0.5151, 0.5097, 0.504, 0.4981, 0.4923, 0.4861, 0.4796, 0.4738, 0.4676, 0.4618, 0.4583, 0.452, 0.4464, 0.4397, 0.4336], "take": [0.0, 0.021, 0.0433, 0.067, 0.0906, 0.1128, 0.1355, 0.1557, 0.1799, 0.2029, 0.2254, 0.2484, 0.2703, 0.2937, 0.3165, 0.3427, 0.3648, 0.3904, 0.4122, 0.4346, 0.458], "mat": [0.4519, 0.4364, 0.4204, 0.4015, 0.3835, 0.3665, 0.3494, 0.3346, 0.3161, 0.299, 0.2823, 0.2655, 0.2501, 0.2325, 0.2159, 0.1955, 0.1769, 0.1576, 0.1414, 0.1257, 0.1084]}, "takeout_stable": {"p": [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0], "pd": [0.105, 0.1032, 0.1023, 0.1009, 0.0991, 0.0972, 0.0951, 0.094, 0.0926, 0.0913, 0.0893, 0.0879, 0.0859, 0.0844, 0.0822, 0.0805, 0.0788, 0.0774, 0.0756, 0.0732, 0.0713], "take": [0.0, 0.0404, 0.0819, 0.1245, 0.1662, 0.2064, 0.2482, 0.2857, 0.3286, 0.3686, 0.4108, 0.4522, 0.493, 0.5343, 0.5764, 0.6211, 0.6605, 0.7029, 0.7409, 0.7811, 0.825], "mat": [0.895, 0.8564, 0.8158, 0.7746, 0.7347, 0.6964, 0.6567, 0.6203, 0.5788, 0.5401, 0.4999, 0.4599, 0.4211, 0.3813, 0.3414, 0.2984, 0.2607, 0.2197, 0.1835, 0.1457, 0.1037]}, "takeout_weighted": {"p": [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0], "pd": [0.4098, 0.4053, 0.4009, 0.3969, 0.3927, 0.3886, 0.3841, 0.3801, 0.3757, 0.372, 0.3676, 0.363, 0.3583, 0.3539, 0.3486, 0.3443, 0.3408, 0.3362, 0.3319, 0.3269, 0.3225], "take": [0.0, 0.0273, 0.056, 0.0863, 0.1156, 0.1434, 0.1719, 0.1977, 0.2277, 0.2554, 0.284, 0.3127, 0.3407, 0.3696, 0.399, 0.4309, 0.4586, 0.4889, 0.5159, 0.5434, 0.5734], "mat": [0.5902, 0.5674, 0.5431, 0.5168, 0.4916, 0.4679, 0.444, 0.4223, 0.3966, 0.3726, 0.3484, 0.3243, 0.301, 0.2765, 0.2525, 0.2249, 0.2006, 0.1749, 0.1522, 0.1296, 0.1042]}, "density": {"x": [0.0, 0.00714, 0.01429, 0.02143, 0.02857, 0.03571, 0.04286, 0.05, 0.05714, 0.06429, 0.07143, 0.07857, 0.08571, 0.09286, 0.1, 0.10714, 0.11429, 0.12143, 0.12857, 0.13571, 0.14286, 0.15, 0.15714, 0.16429, 0.17143, 0.17857, 0.18571, 0.19286, 0.2, 0.20714, 0.21429, 0.22143, 0.22857, 0.23571, 0.24286, 0.25, 0.25714, 0.26429, 0.27143, 0.27857, 0.28571, 0.29286, 0.3, 0.30714, 0.31429, 0.32143, 0.32857, 0.33571, 0.34286, 0.35, 0.35714, 0.36429, 0.37143, 0.37857, 0.38571, 0.39286, 0.4, 0.40714, 0.41429, 0.42143, 0.42857, 0.43571, 0.44286, 0.45, 0.45714, 0.46429, 0.47143, 0.47857, 0.48571, 0.49286, 0.5, 0.50714, 0.51429, 0.52143, 0.52857, 0.53571, 0.54286, 0.55, 0.55714, 0.56429, 0.57143, 0.57857, 0.58571, 0.59286, 0.6, 0.60714, 0.61429, 0.62143, 0.62857, 0.63571, 0.64286, 0.65, 0.65714, 0.66429, 0.67143, 0.67857, 0.68571, 0.69286, 0.7, 0.70714, 0.71429, 0.72143, 0.72857, 0.73571, 0.74286, 0.75, 0.75714, 0.76429, 0.77143, 0.77857, 0.78571, 0.79286, 0.8, 0.80714, 0.81429, 0.82143, 0.82857, 0.83571, 0.84286, 0.85], "decline": [0.046, 0.0639, 0.08505, 0.10922, 0.13608, 0.16501, 0.19515, 0.22574, 0.25637, 0.28714, 0.31869, 0.35199, 0.38837, 0.42904, 0.47517, 0.52697, 0.58393, 0.64481, 0.70832, 0.774, 0.84231, 0.91448, 0.99129, 1.07245, 1.15633, 1.24055, 1.32272, 1.40116, 1.47467, 1.54257, 1.60442, 1.6599, 1.70933, 1.75311, 1.7922, 1.8273, 1.8589, 1.88679, 1.90957, 1.92508, 1.93031, 1.92299, 1.90201, 1.86808, 1.82412, 1.77389, 1.72181, 1.67117, 1.62352, 1.57846, 1.53431, 1.48905, 1.44108, 1.38958, 1.33418, 1.27475, 1.21152, 1.14489, 1.07584, 1.00545, 0.93502, 0.86574, 0.79878, 0.73488, 0.67456, 0.61764, 0.56367, 0.51203, 0.46226, 0.41444, 0.36898, 0.32666, 0.28794, 0.25285, 0.22089, 0.19125, 0.16347, 0.13752, 0.11402, 0.09373, 0.07715, 0.06416, 0.05394, 0.04553, 0.03806, 0.0312, 0.02507, 0.01998, 0.01614, 0.01344, 0.0116, 0.01023, 0.00898, 0.00766, 0.00622, 0.00472, 0.00332, 0.00214, 0.00126, 0.00067, 0.00033, 0.00014, 6e-05, 2e-05, 1e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "stable": [0.02261, 0.02819, 0.03404, 0.04025, 0.04709, 0.05495, 0.06412, 0.07468, 0.08641, 0.09882, 0.11136, 0.12363, 0.13552, 0.14725, 0.15926, 0.17201, 0.18594, 0.20131, 0.21825, 0.23675, 0.25663, 0.27752, 0.2988, 0.31969, 0.33932, 0.35681, 0.3716, 0.38335, 0.39221, 0.39858, 0.40308, 0.40629, 0.40853, 0.40982, 0.40978, 0.40796, 0.40383, 0.3972, 0.38812, 0.377, 0.36438, 0.35078, 0.33657, 0.32193, 0.30689, 0.29143, 0.27563, 0.25966, 0.24373, 0.22803, 0.21263, 0.19743, 0.18229, 0.16706, 0.15171, 0.1364, 0.12139, 0.10699, 0.09352, 0.08118, 0.07012, 0.06039, 0.05195, 0.04471, 0.03848, 0.03309, 0.02834, 0.02413, 0.02037, 0.01708, 0.01426, 0.0119, 0.00998, 0.00841, 0.00711, 0.00601, 0.00508, 0.00427, 0.00358, 0.00299, 0.00247, 0.002, 0.00157, 0.00118, 0.00084, 0.00057, 0.00036, 0.00021, 0.00012, 6e-05, 3e-05, 1e-05, 1e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "weighted": [0.03164, 0.04498, 0.05993, 0.07628, 0.09414, 0.11365, 0.13464, 0.15685, 0.18023, 0.20501, 0.23147, 0.25974, 0.28985, 0.32205, 0.35726, 0.39676, 0.44123, 0.4901, 0.54175, 0.59455, 0.6481, 0.7031, 0.7602, 0.8192, 0.87898, 0.93797, 0.99463, 1.04745, 1.09527, 1.1376, 1.17475, 1.20831, 1.24052, 1.27306, 1.30591, 1.33724, 1.36467, 1.38622, 1.40104, 1.40857, 1.40816, 1.39968, 1.38336, 1.36011, 1.3319, 1.30094, 1.26921, 1.23806, 1.20779, 1.17769, 1.14613, 1.11129, 1.07186, 1.02786, 0.98066, 0.93216, 0.88401, 0.83687, 0.79054, 0.74447, 0.69859, 0.65356, 0.61038, 0.56951, 0.53047, 0.49208, 0.45327, 0.41383, 0.37459, 0.33708, 0.3027, 0.27212, 0.2449, 0.21974, 0.1954, 0.17135, 0.14801, 0.12636, 0.10743, 0.09169, 0.07894, 0.06841, 0.05892, 0.04966, 0.04049, 0.03194, 0.02475, 0.01937, 0.01568, 0.01315, 0.01122, 0.00952, 0.00795, 0.00655, 0.00536, 0.0044, 0.00361, 0.00294, 0.00234, 0.00181, 0.00134, 0.00094, 0.00061, 0.00037, 0.0002, 9e-05, 4e-05, 1e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}, "cases": {"base": {"netlev": [7.325, 6.89, 6.403, 5.907, 5.401, 4.886, 4.363], "fccr": [1.213, 1.288, 1.365, 1.431, 1.503, 1.582, 1.669], "tlb": [2348.72, 2289.59, 2221.97, 2146.41, 2062.43, 1969.55, 1867.24], "rcf": [0, 0, 0, 0, 0, 0, 0], "liq": [581.28, 616.42, 660.03, 711.59, 771.57, 840.46, 918.76], "ebitda": [411.93, 424.28, 439.13, 454.5, 470.41, 486.88, 503.92], "cash": [81.28, 116.42, 160.03, 211.59, 271.57, 340.46, 418.76], "debt": [3098.72, 3039.59, 2971.97, 2896.41, 2812.43, 2719.55, 2617.24], "dscr": [1.604, 1.723, 1.847, 1.953, 2.072, 2.206, 2.358]}, "downside": {"netlev": [8.747, 10.797, 12.093, 11.989, 10.531, 10.239, 9.934], "fccr": [1.036, 0.87, 0.798, 0.807, 0.91, 0.933, 0.957], "tlb": [2372.45, 2348.45, 2324.45, 2300.45, 2276.45, 2252.45, 2228.45], "rcf": [0, 18.98, 73.82, 132.69, 166.84, 195.12, 216.98], "liq": [557.56, 531.02, 476.18, 417.31, 383.16, 354.88, 333.02], "ebitda": [350.38, 284.09, 256.2, 261.33, 298.47, 307.42, 316.64], "cash": [57.56, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0], "debt": [3122.45, 3117.42, 3148.26, 3183.13, 3193.28, 3197.56, 3195.42], "dscr": [1.337, 1.092, 0.984, 0.996, 1.149, 1.181, 1.216]}, "stress": {"netlev": [8.857, 11.138, 12.735, 12.878, 11.535, 11.429, 11.28], "fccr": [0.913, 0.718, 0.639, 0.647, 0.732, 0.753, 0.787], "tlb": [2376.0, 2352.0, 2328.0, 2304.0, 2280.0, 2256.0, 2232.0], "rcf": [27.29, 112.26, 234.66, 361.28, 462.97, 500.0, 500.0], "liq": [522.71, 437.74, 315.34, 188.72, 87.03, -7.64, -89.75], "ebitda": [350.38, 284.09, 256.2, 261.33, 298.47, 307.42, 316.64], "cash": [50.0, 50.0, 50.0, 50.0, 50.0, -7.64, -89.75], "debt": [3153.29, 3214.26, 3312.66, 3415.28, 3492.97, 3506.0, 3482.0], "dscr": [1.146, 0.864, 0.751, 0.761, 0.88, 0.909, 0.956]}, "mgmt": {"netlev": [6.874, 6.083, 5.3, 4.535, 3.788, 3.063, 2.366], "fccr": [1.283, 1.429, 1.583, 1.739, 1.918, 2.118, 2.334], "tlb": [2346.19, 2273.86, 2182.54, 2072.09, 1940.54, 1786.74, 1610.73], "rcf": [0, 0, 0, 0, 0, 0, 0], "liq": [583.82, 632.14, 699.47, 785.92, 893.47, 1023.27, 1175.28], "ebitda": [438.21, 475.4, 515.66, 559.22, 606.35, 657.34, 712.49], "cash": [83.82, 132.14, 199.47, 285.92, 393.47, 523.27, 675.28], "debt": [3096.19, 3023.86, 2932.54, 2822.09, 2690.54, 2536.74, 2360.73], "dscr": [1.709, 1.939, 2.19, 2.45, 2.76, 3.137, 3.603]}}, "margin": {"FY2023": {"gross_m": 0.22807, "sga_m": 0.14119, "uw_m": 0.0836, "uw": 359.7, "rev": 4302.3}, "FY2024": {"gross_m": 0.20267, "sga_m": 0.1261, "uw_m": 0.0775, "uw": 387.4, "rev": 4998.2}, "FY2025": {"gross_m": 0.19256, "sga_m": 0.1208, "uw_m": 0.07164, "uw": 404.7, "rev": 5649.5}, "H1 2025": {"gross_m": 0.19356, "sga_m": 0.12303, "uw_m": 0.0698, "uw": 191.9, "rev": 2749.1}, "H1 2026": {"gross_m": 0.18949, "sga_m": 0.12145, "uw_m": 0.06904, "uw": 192.8, "rev": 2793.1}, "LTM Jun-26": {"gross_m": 0.19058, "sga_m": 0.12004, "uw_m": 0.07093, "uw": 403.9, "rev": 5693.5}}, "scen": {"Margins stable": {"x": -0.9, "pd": 0.105}, "Latest-year pace": {"x": 53.0, "pd": 0.2521}, "Recent decline repeats": {"x": 125.9, "pd": 0.5481}, "Core operating pace": {"x": 173.4, "pd": 0.7436}, "Decline at 2x recent pace": {"x": 252.6, "pd": 0.9437}, "Margins volatile (60bps sd)": {"x": -1.3, "pd": 0.172}}, "lossm": {"Margins stable": {"el": 0.025, "var_99": 0.3693, "var_999": 0.4699, "mean_loss_if_default": 0.2403}, "Latest-year pace": {"el": 0.0646, "var_99": 0.4364, "var_999": 0.5278, "mean_loss_if_default": 0.2572}, "Recent decline repeats": {"el": 0.1586, "var_99": 0.5187, "var_999": 0.5984, "mean_loss_if_default": 0.2901}, "Core operating pace": {"el": 0.238, "var_99": 0.5699, "var_999": 0.6457, "mean_loss_if_default": 0.3209}, "Decline at 2x recent pace": {"el": 0.3703, "var_99": 0.651, "var_999": 0.7251, "mean_loss_if_default": 0.3924}, "Margins volatile (60bps sd)": {"el": 0.0468, "var_99": 0.4506, "var_999": 0.5662, "mean_loss_if_default": 0.2735}, "Probability-weighted": {"el": 0.1196, "var_99": 0.5194, "var_999": 0.5995, "mean_loss_if_default": 0.2927}}, "flip_bp": 52};
+
+/* ---------- tiny SVG chart kit ---------- */
+const NS = "http://www.w3.org/2000/svg";
+const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+function txt(parent, x, y, s, o = {}) { const t = el("text", { x, y, fill: o.fill || css("--muted"), "font-size": o.size || 11.5, "font-family": o.font || css("--f-body"), "text-anchor": o.anchor || "start", "dominant-baseline": o.base || "auto", "font-weight": o.weight || 400 }, parent); t.textContent = s; return t; }
+const lin = (d0, d1, r0, r1) => (v) => r0 + (v - d0) / (d1 - d0) * (r1 - r0);
+function legend(id, items) { const L = document.getElementById(id); if (!L) return; L.innerHTML = items.map(i => `<span><i class="${i.dash ? "dash" : ""}" style="background:var(${i.c});color:var(${i.c})"></i>${i.n}</span>`).join(""); }
+
+function lineChart(id, cfg) {
+  const host = document.getElementById(id); host.innerHTML = "";
+  const W = Math.max(300, host.clientWidth), H = cfg.h || 300, m = { t: 18, r: cfg.mr || 24, b: 40, l: cfg.ml || 52 };
+  const svg = el("svg", { width: W, height: H, role: "img", "aria-label": cfg.aria || "" }, host);
+  const X = lin(cfg.x[0], cfg.x[1], m.l, W - m.r), Y = lin(cfg.y[0], cfg.y[1], H - m.b, m.t);
+  const g = el("g", {}, svg);
+  cfg.yt.forEach(v => { el("line", { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: css("--line"), "stroke-width": 1 }, g); txt(g, m.l - 8, Y(v), cfg.yf(v), { anchor: "end", base: "middle" }); });
+  (W < 480 && cfg.xtN ? cfg.xtN : cfg.xt).forEach(v => txt(g, X(v), H - m.b + 18, cfg.xf(v), { anchor: "middle" }));
+  if (cfg.xlabel) txt(g, (m.l + W - m.r) / 2, H - 6, cfg.xlabel, { anchor: "middle", size: 11 });
+  (cfg.hl || []).forEach(h => { el("line", { x1: m.l, x2: W - m.r, y1: Y(h.y), y2: Y(h.y), stroke: css(h.c || "--muted"), "stroke-dasharray": "5 4", "stroke-width": 1.2 }, g);
+    txt(g, h.anchor === "start" ? m.l + 6 : W - m.r - 4, Y(h.y) - 6, h.t, { anchor: h.anchor || "end", fill: css(h.c || "--muted"), size: 11 }); });
+  (cfg.vl || []).forEach(v => { el("line", { x1: X(v.x), x2: X(v.x), y1: m.t, y2: H - m.b, stroke: css(v.c || "--muted"), "stroke-dasharray": "2 4", "stroke-width": 1.2 }, g);
+    if (v.t) txt(g, X(v.x) + (v.dx ?? 6), m.t + 10 + (v.dy || 0), v.t, { anchor: v.anchor || "start", fill: css(v.c || "--muted"), size: 11 }); });
+  cfg.s.forEach(s => {
+    if (s.area) { let d = `M${X(s.xs[0])},${Y(0)}` + s.xs.map((x, i) => `L${X(x)},${Y(s.ys[i])}`).join("") + `L${X(s.xs[s.xs.length - 1])},${Y(0)}Z`;
+      el("path", { d, fill: css(s.c), "fill-opacity": s.area }, g); }
+    const d = s.xs.map((x, i) => `${i ? "L" : "M"}${X(x)},${Y(s.ys[i])}`).join("");
+    el("path", { d, fill: "none", stroke: css(s.c), "stroke-width": s.w || 2.25, "stroke-linejoin": "round", "stroke-linecap": "round", "stroke-dasharray": s.dash ? "6 5" : "none" }, g);
+    if (s.dots) s.xs.forEach((x, i) => el("circle", { cx: X(x), cy: Y(s.ys[i]), r: 3.2, fill: css(s.c), stroke: css("--surface"), "stroke-width": 1.5 }, g));
+    if (s.label) { const i = s.labelAt ?? s.xs.length - 1; txt(g, X(s.xs[i]) + (s.ldx ?? 8), Y(s.ys[i]) + (s.ldy ?? 0), s.label, { fill: css("--ink-soft"), size: 11.5, base: "middle", anchor: s.lanchor || "start" }); }
+  });
+  (cfg.pts || []).forEach(p => { el("circle", { cx: X(p.x), cy: Y(p.y), r: 5.5, fill: css(p.c || "--gold"), stroke: css("--surface"), "stroke-width": 2 }, g);
+    const t = txt(g, X(p.x) + (p.dx ?? 10), Y(p.y) + (p.dy ?? -10), p.t, { fill: css("--ink"), size: 11.5, anchor: p.anchor || "start", weight: 500 });
+    if (p.t2) txt(g, X(p.x) + (p.dx ?? 10), Y(p.y) + (p.dy ?? -10) + 15, p.t2, { fill: css("--muted"), size: 11, anchor: p.anchor || "start" }); });
+  // hover: crosshair + tooltip
+  const tip = document.createElement("div"); tip.className = "tip"; tip.hidden = true; host.appendChild(tip);
+  const cross = el("line", { y1: m.t, y2: H - m.b, stroke: css("--muted"), "stroke-width": 1, opacity: 0 }, svg);
+  const hit = el("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+  const base = cfg.s[0].xs;
+  function show(evt) { const r = svg.getBoundingClientRect(); const px = evt.clientX - r.left;
+    let bi = 0, bd = 1e9; base.forEach((x, i) => { const dd = Math.abs(X(x) - px); if (dd < bd) { bd = dd; bi = i; } });
+    cross.setAttribute("x1", X(base[bi])); cross.setAttribute("x2", X(base[bi])); cross.setAttribute("opacity", .6);
+    tip.innerHTML = `<b>${cfg.tx(base[bi])}</b><br>` + cfg.s.filter(s => !s.notip).map(s => `<span style="color:${css(s.c)}">●</span> ${s.n}: ${cfg.ty(s.ys[bi])}`).join("<br>");
+    tip.hidden = false; const tw = tip.offsetWidth; let lx = X(base[bi]) + 12; if (lx + tw > W) lx = X(base[bi]) - tw - 12; tip.style.left = lx + "px"; tip.style.top = (m.t + 4) + "px"; }
+  hit.addEventListener("mousemove", show); hit.addEventListener("mouseleave", () => { tip.hidden = true; cross.setAttribute("opacity", 0); });
+}
+
+/* ---------- leverage dot plot ---------- */
+function levChart() {
+  const id = "c_lev", host = document.getElementById(id); host.innerHTML = "";
+  const rows = [
+    { n: "OPCH today (pre-deal)", v: 2.90, c: "--muted" },
+    { n: "Deal: loan-document EBITDA", v: 6.18, c: "--s2" },
+    { n: "Deal: management EBITDA", v: 6.73, c: "--s2" },
+    { n: "Deal: Underwriting EBITDA", v: 7.80, c: "--s3" } ];
+  const W = Math.max(300, host.clientWidth), narrow = W < 560, H = 210, m = { t: 26, r: 30, b: 30, l: narrow ? 128 : 210 };
+  const svg = el("svg", { width: W, height: H, role: "img", "aria-label": "Leverage on each EBITDA definition versus market references" }, host);
+  const X = lin(0, 9, m.l, W - m.r), rh = (H - m.t - m.b) / rows.length;
+  [0, 2, 4, 6, 8].forEach(v => { el("line", { x1: X(v), x2: X(v), y1: m.t - 6, y2: H - m.b, stroke: css("--line") }, svg); txt(svg, X(v), H - m.b + 18, v + ".0x", { anchor: "middle" }); });
+  [[5.0, "2025 LBO avg 5.0x"], [6.0, "6.0x guidance"]].forEach(([v, t], i) => { el("line", { x1: X(v), x2: X(v), y1: m.t - 10, y2: H - m.b, stroke: css("--gold"), "stroke-dasharray": "4 4", "stroke-width": 1.3 }, svg);
+    txt(svg, X(v) + (i ? 5 : -5), m.t - 14, t, { anchor: i ? "start" : "end", fill: css("--gold-ink"), size: 11 }); });
+  rows.forEach((r, i) => { const y = m.t + rh * (i + .5);
+    txt(svg, m.l - 12, y, narrow ? r.n.replace("Deal: ", "").replace("OPCH today (pre-deal)", "Pre-deal") : r.n, { anchor: "end", base: "middle", fill: css("--ink-soft"), size: narrow ? 11 : 12.5 });
+    el("line", { x1: X(0), x2: X(r.v), y1: y, y2: y, stroke: css(r.c), "stroke-width": 2, "stroke-opacity": .55 }, svg);
+    el("circle", { cx: X(r.v), cy: y, r: 7, fill: css(r.c), stroke: css("--surface"), "stroke-width": 2 }, svg);
+    txt(svg, X(r.v) + 13, y, r.v.toFixed(1) + "x", { base: "middle", fill: css("--ink"), size: 12.5, weight: 600 }); });
+}
+
+const pct = v => (v * 100).toFixed(0) + "%", pct1 = v => (v * 100).toFixed(1) + "%";
+function draw() {
+  levChart();
+  const X1 = v => v.toFixed(1) + "x";
+
+  // margins (%)
+  const mp = ["FY2023", "FY2024", "FY2025", "LTM Jun-26"], mx = [0, 1, 2, 3];
+  const MG = k => mp.map(p => D.margin[p][k]);
+  legend("lg_margin", [{ n: "Gross margin", c: "--s2" }, { n: "SG&A, % of revenue", c: "--muted" }, { n: "Underwriting EBITDA margin", c: "--s1" }]);
+  lineChart("c_margin", { x: [-0.2, 3.2], y: [0, 0.25], h: 290, xt: mx, xf: i => mp[i].replace("LTM Jun-26", "LTM"), yt: [0, .05, .10, .15, .20, .25], yf: v => (v * 100).toFixed(0) + "%",
+    tx: i => mp[i], ty: v => (v * 100).toFixed(2) + "%", aria: "Gross margin, SG&A and Underwriting EBITDA margin, FY2023 to LTM",
+    s: [{ n: "Gross margin", xs: mx, ys: MG("gross_m"), c: "--s2", dots: 1 }, { n: "SG&A", xs: mx, ys: MG("sga_m"), c: "--muted", dots: 1 }, { n: "Underwriting EBITDA margin", xs: mx, ys: MG("uw_m"), c: "--s1", dots: 1, w: 2.75 }],
+    pts: [{ x: 0, y: MG("gross_m")[0], t: "22.8%", dx: 0, dy: -12, anchor: "middle", c: "--s2" }, { x: 3, y: MG("gross_m")[3], t: "19.1%", dx: 0, dy: -12, anchor: "middle", c: "--s2" },
+          { x: 0, y: MG("uw_m")[0], t: "8.4%", dx: 0, dy: -12, anchor: "middle", c: "--s1" }, { x: 3, y: MG("uw_m")[3], t: "7.1%", dx: 0, dy: -12, anchor: "middle", c: "--s1" }] });
+
+  // EBITDA dollars
+  const UW = mp.map(p => D.margin[p].uw);
+  lineChart("c_ebitda", { x: [-0.2, 3.2], y: [300, 450], h: 290, xt: mx, xf: i => mp[i].replace("LTM Jun-26", "LTM"), yt: [300, 350, 400, 450], yf: v => "$" + v,
+    tx: i => mp[i], ty: v => "$" + v.toFixed(0) + "mm", aria: "Underwriting EBITDA in dollars, FY2023 to LTM",
+    s: [{ n: "Underwriting EBITDA", xs: mx, ys: UW, c: "--s1", w: 2.75, dots: 1 }],
+    pts: UW.map((v, i) => ({ x: i, y: v, t: "$" + v.toFixed(0) + "mm", dx: 0, dy: -14, anchor: "middle", c: "--s1" })) });
+
+  // cases
+  const yrs = [2026.5, 2027, 2028, 2029, 2030, 2031, 2032, 2033];
+  const C = k => [7.67].concat(D.cases[k].netlev);
+  legend("lg_cases", [{ n: "Lender base", c: "--s2" }, { n: "Downside", c: "--s1" }, { n: "Downside, stressed rates", c: "--s3" }]);
+  lineChart("c_cases", { x: [2026.4, 2033.2], y: [0, 14], h: 300, mr: 40, xt: yrs, xtN: [2026.5, 2028, 2030, 2033], xf: v => v === 2026.5 ? "Close" : String(v), yt: [0, 2, 4, 6, 8, 10, 12, 14], yf: v => v + "x",
+    tx: v => v === 2026.5 ? "At close" : String(v), ty: v => v.toFixed(1) + "x", aria: "Net leverage by year for three cases",
+    hl: [{ y: 6, t: "6.0x refinancing threshold", c: "--gold", anchor: "end" }],
+    s: [{ n: "Lender base", xs: yrs, ys: C("base"), c: "--s2", dots: 1 }, { n: "Downside", xs: yrs, ys: C("downside"), c: "--s1", dots: 1 }, { n: "Downside, stressed rates", xs: yrs, ys: C("stress"), c: "--s3", dots: 1 }],
+    pts: ["base", "downside", "stress"].map((k, i) => ({ x: 2033, y: C(k)[7], t: X1(C(k)[7]), dx: 10, dy: 4, c: ["--s2", "--s1", "--s3"][i] })) });
+
+  // PD vs margin
+  const pc = D.pd_curve, px = pc.x.map(v => Math.max(0, v)), S = D.scen;
+  const sp = (nm, t, o) => Object.assign({ x: Math.max(0, S[nm].x), y: S[nm].pd, t: `${t}: ${pct(S[nm].pd)}` }, o);
+  lineChart("c_pd", { x: [0, 300], y: [0, 1], h: 320, xt: [0, 50, 100, 150, 200, 250, 300], xf: v => v + " bps", yt: [0, .25, .5, .75, 1], yf: pct,
+    tx: v => `${v.toFixed(0)} bps average decline`, ty: pct1, xlabel: "Average decline in Underwriting EBITDA margin by 2033", aria: "Probability of default versus margin decline",
+    hl: [{ y: .25, t: "25% PD limit", c: "--gold", anchor: "end" }],
+    vl: [{ x: D.flip_bp, t: `limit crossed ≈ ${D.flip_bp} bps`, c: "--gold", dy: 6 }],
+    s: [{ n: "7-year PD", xs: px, ys: pc.pd, c: "--s2", w: 2.75, dots: 1, area: .08 }],
+    pts: [sp("Margins stable", "Margins hold", { dx: 12, dy: 22, c: "--s2" }),
+          sp("Latest-year pace", "Latest-year pace", { dx: 12, dy: 16, c: "--good" }),
+          sp("Recent decline repeats", "Decline repeats", { dx: 12, dy: 16, c: "--s1" }),
+          sp("Core operating pace", "Core operating pace", { dx: 12, dy: 16, c: "--s3" })] });
+
+  // loss distribution
+  const dn = D.density, LW = D.lossm["Probability-weighted"]; const ymax = Math.max(...dn.weighted, ...dn.stable) * 1.15;
+  legend("lg_loss", [{ n: "Probability-weighted", c: "--s1" }, { n: "Margins hold", c: "--s2", dash: 1 }]);
+  lineChart("c_loss", { x: [0, 0.85], y: [0, ymax], h: 300, ml: 24, xt: [0, .2, .4, .6, .8], xf: pct, yt: [0], yf: () => "", tx: v => `Loss ${pct(v)} of par`, ty: v => v.toFixed(2),
+    xlabel: "7-year credit loss, % of original par", aria: "Loss distribution with expected loss and tail markers",
+    vl: [{ x: LW.el, t: `Expected loss ${pct1(LW.el)}`, c: "--s1", dy: 0 }, { x: LW.var_99, t: `Worst 1 in 100: ${pct1(LW.var_99)}`, c: "--muted", dy: 18, anchor: "end", dx: -6 }, { x: LW.var_999, t: `1 in 1,000: ${pct1(LW.var_999)}`, c: "--s3", dy: 36 }],
+    s: [{ n: "Probability-weighted", xs: dn.x, ys: dn.weighted, c: "--s1", w: 2.5, area: .18 }, { n: "Margins hold", xs: dn.x, ys: dn.stable, c: "--s2", w: 2, dash: 1, area: .06 }] });
+
+  // debt sizing
+  const sw = D.sizing_weighted, ss = D.sizing_stable, sdc = D.sizing_decline, sx = sw.debt.map(v => v / 1000);
+  const iw = v => sx.findIndex(x => Math.abs(x - v) < 1e-9);
+  legend("lg_size", [{ n: "Probability-weighted", c: "--s1" }, { n: "Recent decline repeats", c: "--s3", dash: 1 }, { n: "Margins hold", c: "--s2" }]);
+  lineChart("c_size", { x: [2.0, 3.15], y: [0, .6], h: 320, mr: 112, xt: [2.0, 2.25, 2.5, 2.75, 3.0, 3.15], xtN: [2.0, 2.5, 3.0], xf: v => "$" + v.toFixed(2) + "bn", yt: [0, .1, .2, .3, .4, .5, .6], yf: pct,
+    tx: v => { const i = iw(v); return `$${v.toFixed(2)}bn · ${sw.lev[i].toFixed(2)}x`; }, ty: pct1, xlabel: "Total term debt at close", aria: "Probability of default versus debt at close",
+    hl: [{ y: .25, t: "25% PD limit", c: "--gold", anchor: "start" }],
+    vl: [{ x: 2.9, t: "", c: "--good" }],
+    s: [{ n: "Probability-weighted", xs: sx, ys: sw.pd, c: "--s1", w: 2.75, dots: 1 }, { n: "Decline repeats", xs: sx, ys: sdc.pd, c: "--s3", dash: 1 }, { n: "Margins hold", xs: sx, ys: ss.pd, c: "--s2" }].map(s => (s.xs = s.xs.slice(0, sx.filter(x => x >= 2.0).length), s.ys = s.ys.slice(0, s.xs.length), s)),
+    pts: [{ x: 3.15, y: sw.pd[iw(3.15)], t: `Proposed: ${pct(sw.pd[iw(3.15)])}`, t2: "$3.15bn, 7.7x", dx: 12, dy: 4, anchor: "start", c: "--s1" },
+          { x: 2.9, y: sw.pd[iw(2.9)], t: `$2.9bn: ${pct(sw.pd[iw(2.9)])}`, t2: "7.0x net", dx: 14, dy: 30, anchor: "start", c: "--good" }] });
+
+  // takeout
+  const tw = D.takeout_weighted, ts = D.takeout_stable, tdc = D.takeout_decline;
+  legend("lg_take", [{ n: "Probability-weighted", c: "--s1" }, { n: "Recent decline repeats", c: "--s3", dash: 1 }, { n: "Margins hold", c: "--s2" }]);
+  lineChart("c_take", { x: [0, 1], y: [0, .6], h: 300, mr: 30, xt: [0, .25, .5, .75, 1], xf: pct, yt: [0, .1, .2, .3, .4, .5, .6], yf: pct, tx: v => `${pct(v)} takeout probability`, ty: pct1,
+    xlabel: "Probability of a strategic takeout, 2029–2031", aria: "Probability of default versus takeout probability",
+    hl: [{ y: .25, t: "25% PD limit", c: "--gold", anchor: "start" }],
+    s: [{ n: "Probability-weighted", xs: tw.p, ys: tw.pd, c: "--s1", w: 2.75, dots: 1 }, { n: "Decline repeats", xs: tdc.p, ys: tdc.pd, c: "--s3", dash: 1 }, { n: "Margins hold", xs: ts.p, ys: ts.pd, c: "--s2", dots: 1 }],
+    pts: [{ x: 0, y: tw.pd[0], t: `No takeout: ${pct(tw.pd[0])}`, dx: 10, dy: -12, c: "--s1" }, { x: 1, y: tw.pd[tw.pd.length - 1], t: `Certain takeout: ${pct(tw.pd[tw.pd.length - 1])}`, dx: -10, dy: -14, anchor: "end", c: "--s1" }] });
+}
+let rt; function redraw() { clearTimeout(rt); rt = setTimeout(draw, 80); }
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw); else draw();
+draw();
+window.addEventListener("resize", redraw);
+try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", redraw); } catch (e) {}
+new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+</script>
+
+</body>
+</html>
